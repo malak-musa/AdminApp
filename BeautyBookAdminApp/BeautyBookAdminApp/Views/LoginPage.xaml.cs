@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace BeautyBookAdminApp.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
+    {
+        public LoginPage()
+        {
+            InitializeComponent();
+
+        }
+
+        private async void OnSignupLabelTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SignupPage());
+        }
+
+        private void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            if (UsernameEntry.Text == "admin123@gmail.com" && PasswordEntry.Text == "123456")
+            {
+                Navigation.PushAsync(new AgendaPage());
+            }
+            else
+            {
+                DisplayAlert("Ops..", "Username or Password is incorrect!", "OK");
+            }
+        }
+    }
+
+}

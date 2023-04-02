@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeautyBookAdminApp.Views.SignupPage"
+             Title="        Create your account">
+    
+    <ContentPage.Content>
+        
+        <StackLayout>
+
+            <Frame CornerRadius="10" 
+                   BackgroundColor="White" 
+                   Margin="30,50,30,0">
+
+                <StackLayout Spacing="10">
+
+                    <StackLayout>
+
+                        <Label Margin="15,10,15,5" 
+                               Text="Salon Inforamtion" 
+                               FontSize="Medium" 
+                               FontAttributes="Bold" 
+                               TextColor="Black" />
+
+                        <Entry x:Name="salonName" 
+                               Margin="15,0,15,0"
+                               Placeholder="Salon Name"
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
+
+                        <Entry x:Name="salonType" 
+                               Margin="15,0,15,0" 
+                               Placeholder="Salon Type" 
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
+
+                    </StackLayout>
+
+                    <StackLayout>
+
+                        <Label Margin="15,20,15,5" 
+                               Text="Account Inforamtion" 
+                               FontSize="Medium" 
+                               FontAttributes="Bold" 
+                               TextColor="Black" />
+
+                        <Entry x:Name="userID" 
+                           Margin="15,0,15,0"
+                           Placeholder="User ID" 
+                           FontSize="Body" 
+                           PlaceholderColor="#a5a5a5" />
+
+                        <Entry x:Name="password" 
+                               Margin="15,0,15,0"
+                               Placeholder="Password" 
+                               FontSize="Body" 
+                               PlaceholderColor="#a5a5a5" 
+                               IsPassword="True" />
+
+                    </StackLayout>
+
+                    <StackLayout>
+
+                        <Label Margin="15,20,15,5" 
+                               Text="Account Inforamtion" 
+                               FontSize="Medium" 
+                               FontAttributes="Bold" 
+                               TextColor="Black" />
+
+                        <Entry x:Name="address" 
+                               Margin="15,0,15,0" 
+                               Placeholder="Address" 
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
+
+                        <Entry x:Name="phoneNumber"
+                               Keyboard="Numeric"
+                               Margin="15,0,15,0" 
+                               Placeholder="Phone Number" 
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
+
+                    </StackLayout>
+
+
+                    <Button x:Name="signupButton"
+                            Text="SIGN UP" 
+                            FontSize="Large" 
+                            TextColor="White" 
+                            BackgroundColor="#3C504C" 
+                            Margin="50,40,50,10" 
+                            Padding="10" 
+                            CornerRadius="10" />
+
+                </StackLayout>
+
+
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
