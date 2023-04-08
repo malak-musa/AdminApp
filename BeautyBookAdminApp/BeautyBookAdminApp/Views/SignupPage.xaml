@@ -33,6 +33,19 @@
                                Placeholder="Salon Type" 
                                PlaceholderColor="#a5a5a5" 
                                FontSize="Body" />
+                        
+                        <Entry x:Name="dayOff" 
+                               Keyboard="Text"
+                               Margin="15,0,15,0" 
+                               Placeholder="Day Off" 
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
+
+                        <Entry x:Name="openingHours" 
+                               Margin="15,0,15,0" 
+                               Placeholder="Opening Hours" 
+                               PlaceholderColor="#a5a5a5" 
+                               FontSize="Body" />
 
                     </StackLayout>
 
@@ -44,11 +57,12 @@
                                FontAttributes="Bold" 
                                TextColor="Black" />
 
-                        <Entry x:Name="userID" 
-                           Margin="15,0,15,0"
-                           Placeholder="User ID" 
-                           FontSize="Body" 
-                           PlaceholderColor="#a5a5a5" />
+                        <Entry x:Name="Email" 
+                               Keyboard="Email"
+                               Margin="15,0,15,0"
+                               Placeholder="User ID" 
+                               FontSize="Body" 
+                               PlaceholderColor="#a5a5a5" />
 
                         <Entry x:Name="password" 
                                Margin="15,0,15,0"
@@ -62,7 +76,7 @@
                     <StackLayout>
 
                         <Label Margin="15,20,15,5" 
-                               Text="Account Inforamtion" 
+                               Text="Contact Inforamtion" 
                                FontSize="Medium" 
                                FontAttributes="Bold" 
                                TextColor="Black" />

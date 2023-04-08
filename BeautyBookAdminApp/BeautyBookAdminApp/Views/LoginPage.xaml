@@ -5,26 +5,27 @@
              NavigationPage.HasNavigationBar="False">
     
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center"
-                 VerticalOptions="Start">
+        
+        <StackLayout VerticalOptions="Start"
+                     Margin="40,0,40,0">
             
-            <Label Text="Welcom"
-                   FontSize="44"
+            <Label Text="Welcome"
+                   FontSize="40"
                    FontAttributes="Bold"
                    TextColor="Black"
                    Margin="0,100,0,1"
                    HorizontalOptions="Center" />
 
-            <Label Text="On BeautuBook Admin "
-                   FontSize="20"
-                   TextColor="Black"
-                   LineBreakMode="NoWrap"
+            <Label Text="on BeautuBook Admin "
+                   FontSize="22"
+                   TextColor="#495057"
+                   
                    HorizontalOptions="Center" />
 
             <Label Text="Login to your account"
                    FontSize="20"
                    TextColor="Black"
-                   Margin="0,80,100,0"
+                   Margin="0,80,100,15"
                    HorizontalOptions="Start" />
 
             <Entry x:Name="UsernameEntry"
@@ -33,6 +34,7 @@
                    TextColor ="Black" 
                    Keyboard="Text"
                    VerticalOptions="Start"/>
+            
             <Entry x:Name="PasswordEntry"
                    Text="{Binding Password}"
                    Placeholder="Password"
@@ -45,10 +47,10 @@
                     BackgroundColor="#3C504C"
                     TextColor="White"
                     HeightRequest="50"
-                    WidthRequest="208" 
+                    WidthRequest="200" 
                     FontSize="24"
                     CornerRadius="10"
-                    Margin="20,50,20,0"
+                    Margin="10,50,10,0"
                     Clicked="LoginButton_Clicked"/>
 
             <Label x:Name="ErrorLabel"
@@ -59,13 +61,14 @@
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center" 
                          Margin="0,100,0,0">
-                <Label Text="Don't have an account? "
-                   TextColor="Gray"
+                <Label Text="Don't have an account?"
+                   TextColor="#6c757d"
                    FontSize="Small"
                    VerticalOptions="Center" />
-                <Label Text="Sign up"
+                <Label Text="Signup"
                        TextColor="Black"
                        FontSize="Small"
+                       FontAttributes="Bold"
                        VerticalOptions="Center">
                     
                     <Label.GestureRecognizers>
