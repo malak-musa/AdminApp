@@ -50,7 +50,7 @@
                     WidthRequest="200" 
                     FontSize="24"
                     CornerRadius="10"
-                    Margin="10,50,10,0"
+                    Margin="0,50,0,0"
                     Clicked="LoginButton_Clicked"/>
 
             <Label x:Name="ErrorLabel"
