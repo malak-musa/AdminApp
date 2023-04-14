@@ -7,16 +7,16 @@
     <ContentPage.Content>
         
         <StackLayout VerticalOptions="Start"
-                     Margin="40,0,40,0">
+                     Margin="30,0,30,0">
             
             <Label Text="Welcome"
-                   FontSize="40"
+                   FontSize="44"
                    FontAttributes="Bold"
                    TextColor="Black"
                    Margin="0,100,0,1"
                    HorizontalOptions="Center" />
 
-            <Label Text="on BeautuBook Admin "
+            <Label Text="to BeautuBook Admin"
                    FontSize="22"
                    TextColor="#495057"
                    

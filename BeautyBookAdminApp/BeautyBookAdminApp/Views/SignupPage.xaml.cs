@@ -16,5 +16,10 @@ namespace BeautyBookAdminApp.Views
         {
             InitializeComponent();
         }
+
+        private void SignupButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

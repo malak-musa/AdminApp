@@ -10,13 +10,13 @@
 
             <Frame CornerRadius="10" 
                    BackgroundColor="White" 
-                   Margin="30,50,30,0">
+                   Margin="30,30,30,0">
 
-                <StackLayout Spacing="10">
+                <StackLayout Spacing="5">
 
                     <StackLayout>
 
-                        <Label Margin="15,10,15,5" 
+                        <Label Margin="15,10,15,0" 
                                Text="Salon Inforamtion" 
                                FontSize="Medium" 
                                FontAttributes="Bold" 
@@ -51,7 +51,7 @@
 
                     <StackLayout>
 
-                        <Label Margin="15,20,15,5" 
+                        <Label Margin="15,10,15,0" 
                                Text="Account Inforamtion" 
                                FontSize="Medium" 
                                FontAttributes="Bold" 
@@ -97,14 +97,18 @@
                     </StackLayout>
 
 
+                    
+
                     <Button x:Name="signupButton"
-                            Text="SIGN UP" 
-                            FontSize="Large" 
-                            TextColor="White" 
-                            BackgroundColor="#3C504C" 
-                            Margin="50,40,50,10" 
-                            Padding="10" 
-                            CornerRadius="10" />
+                            Text="Signup"
+                            BackgroundColor="#3C504C"
+                            TextColor="White"
+                            HeightRequest="50"
+                            WidthRequest="200" 
+                            FontSize="24"
+                            CornerRadius="10"
+                            Margin="20,30,20,10"
+                            Clicked="SignupButton_Clicked"/>
 
                 </StackLayout>
 
