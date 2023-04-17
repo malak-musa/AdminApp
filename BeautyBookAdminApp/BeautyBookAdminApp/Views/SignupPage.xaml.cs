@@ -39,5 +39,10 @@ namespace BeautyBookAdminApp.Views
         {
             await Navigation.PushAsync(new AgendaPage());
         }
+
+        private void SignupButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.LoginPage"
@@ -14,9 +14,11 @@
             <Image Source="BeautyBook_logo.png" 
                    Margin="0,80,0,0" 
                    VerticalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Start"
+                     Margin="30,0,30,0">
             
             <Label Text="Welcome"
-                   FontSize="40"
+                   FontSize="44"
                    FontAttributes="Bold"
                    TextColor="Black"
                    Margin="0,40,0,0"
@@ -24,6 +26,8 @@
 
             <Label Text="on BeautuBook Admin "
                    FontSize="24"
+            <Label Text="to BeautuBook Admin"
+                   FontSize="22"
                    TextColor="#495057"
                    HorizontalOptions="Center" />
 
