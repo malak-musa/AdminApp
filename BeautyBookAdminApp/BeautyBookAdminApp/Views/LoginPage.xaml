@@ -1,11 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.LoginPage"
-             NavigationPage.HasNavigationBar="False">
+             xmlns:local="clr-namespace:BeautyBookAdminApp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White">
     
     <ContentPage.Content>
         
+        <StackLayout VerticalOptions="StartAndExpand"
+                     Margin="40,0,40,0">
+
+            <Image Source="BeautyBook_logo.png" 
+                   Margin="0,80,0,0" 
+                   VerticalOptions="CenterAndExpand" />
         <StackLayout VerticalOptions="Start"
                      Margin="30,0,30,0">
             
@@ -13,42 +21,62 @@
                    FontSize="44"
                    FontAttributes="Bold"
                    TextColor="Black"
-                   Margin="0,100,0,1"
+                   Margin="0,40,0,0"
                    HorizontalOptions="Center" />
 
+            <Label Text="on BeautuBook Admin "
+                   FontSize="24"
             <Label Text="to BeautuBook Admin"
                    FontSize="22"
                    TextColor="#495057"
-                   
                    HorizontalOptions="Center" />
 
             <Label Text="Login to your account"
                    FontSize="20"
                    TextColor="Black"
-                   Margin="0,80,100,15"
-                   HorizontalOptions="Start" />
+                   Margin="0,50,0,10"
+                   HorizontalOptions="StartAndExpand" />
 
-            <Entry x:Name="UsernameEntry"
+            <Entry x:Name="Username"
                    Text="{Binding Username}"
                    Placeholder="Username"
+                   PlaceholderColor="#B5B5B5"
                    TextColor ="Black" 
-                   Keyboard="Text"
-                   VerticalOptions="Start"/>
-            
-            <Entry x:Name="PasswordEntry"
-                   Text="{Binding Password}"
-                   Placeholder="Password"
-                   IsPassword="True"
-                   TextColor="Black" 
                    Keyboard="Text"/>
 
+            <Entry x:Name="Password"
+                   Text="{Binding Password}"
+                   Placeholder="Password"
+                   FontSize="18"
+                   PlaceholderColor="#B5B5B5"
+                   TextColor ="Black" 
+                   Keyboard="Text"
+                   VerticalOptions="FillAndExpand"
+                   IsPassword="{Binding Source={x:Reference ShowPasswordButtonTrigger}, 
+                                        Path = HidePassword}"/>
+
+            <ImageButton Source="hide_eye_icon.png"
+                         VerticalOptions="End"
+                         HeightRequest="20"
+                         Margin="260,-40,0,0"
+                         BackgroundColor="White">
+
+                <ImageButton.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <local:ShowPassword ShowIcon="eye_icon.png"
+                                            HideIcon="hide_eye_icon.png"
+                                            x:Name="ShowPasswordButtonTrigger"/>
+                    </EventTrigger>
+                </ImageButton.Triggers>
+            </ImageButton>
+            
             <Button x:Name="LoginButton"
                     Text="Login"
                     BackgroundColor="#3C504C"
                     TextColor="White"
                     HeightRequest="50"
                     WidthRequest="200" 
-                    FontSize="24"
+                    FontSize="20"
                     CornerRadius="10"
                     Margin="0,50,0,0"
                     Clicked="LoginButton_Clicked"/>
@@ -60,11 +88,13 @@
 
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center" 
-                         Margin="0,100,0,0">
+                         Margin="0,120,0,100">
+                
                 <Label Text="Don't have an account?"
-                   TextColor="#6c757d"
-                   FontSize="Small"
-                   VerticalOptions="Center" />
+                       TextColor="#6c757d"
+                       FontSize="Small"
+                       VerticalOptions="Center" />
+                
                 <Label Text="Signup"
                        TextColor="Black"
                        FontSize="Small"

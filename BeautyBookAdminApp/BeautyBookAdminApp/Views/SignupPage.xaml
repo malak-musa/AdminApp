@@ -1,120 +1,171 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.SignupPage"
-             Title="        Create your account">
-    
+             xmlns:local="clr-namespace:BeautyBookAdminApp.ViewModels"
+             BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <local:SignupViewModel></local:SignupViewModel>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        
         <StackLayout>
+            
+            <Label Text="Create Account"
+                   TextColor="Black"
+                   FontSize="35"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"
+                   Margin="40,20,0,0"/>
 
-            <Frame CornerRadius="10" 
-                   BackgroundColor="White" 
-                   Margin="30,30,30,0">
+            <StackLayout Spacing="10">
 
-                <StackLayout Spacing="5">
+                <Entry x:Name="SalonName"
+                       Text="{Binding SalonName}"
+                       Placeholder="Salon Name"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,30,40,0"/>
 
-                    <StackLayout>
+                <Entry x:Name="UserID"
+                       Text="{Binding UserID}"
+                       Placeholder="User ID"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,0,40,0"/>
 
-                        <Label Margin="15,10,15,0" 
-                               Text="Salon Inforamtion" 
-                               FontSize="Medium" 
-                               FontAttributes="Bold" 
-                               TextColor="Black" />
+                <Grid>
+                    <Entry x:Name="Password"
+                           Text="{Binding Password}"
+                           Placeholder="Password"
+                           FontSize="18"
+                           PlaceholderColor="#B5B5B5"
+                           TextColor ="Black" 
+                           Margin="40,0,40,0"
+                           Keyboard="Text"
+                           IsPassword="{Binding Source={x:Reference ShowPasswordButtonTrigger}, 
+                                                Path = HidePassword}" />
 
-                        <Entry x:Name="salonName" 
-                               Margin="15,0,15,0"
-                               Placeholder="Salon Name"
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
-
-                        <Entry x:Name="salonType" 
-                               Margin="15,0,15,0" 
-                               Placeholder="Salon Type" 
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
+                    <ImageButton Source="hide_eye_icon.png"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="End"
+                                 HeightRequest="20"
+                                 Margin="0,0,55,7"
+                                 BackgroundColor="White">
                         
-                        <Entry x:Name="dayOff" 
-                               Keyboard="Text"
-                               Margin="15,0,15,0" 
-                               Placeholder="Day Off" 
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
+                        <ImageButton.Triggers>
+                            <EventTrigger Event="Clicked">
+                                <local:ShowPassword ShowIcon="eye_icon.png"
+                                                                 HideIcon="hide_eye_icon.png"
+                                                                 x:Name="ShowPasswordButtonTrigger"/>
+                            </EventTrigger>
+                        </ImageButton.Triggers>
+                    </ImageButton>
 
-                        <Entry x:Name="openingHours" 
-                               Margin="15,0,15,0" 
-                               Placeholder="Opening Hours" 
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
+                </Grid>
 
-                    </StackLayout>
+                <Entry x:Name="PhoneNumber"
+                       Text="{Binding PhoneNumber}"
+                       Placeholder="Phone Number"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Telephone"
+                       Margin="40,0,40,0"/>
 
-                    <StackLayout>
+                <Entry x:Name="Address"
+                       Text="{Binding Address}"
+                       Placeholder="Address"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,0,40,0"/>
 
-                        <Label Margin="15,10,15,0" 
-                               Text="Account Inforamtion" 
-                               FontSize="Medium" 
-                               FontAttributes="Bold" 
-                               TextColor="Black" />
+                <Picker x:Name="City" 
+                        Title="Select a city" 
+                        FontSize="18"
+                        TextColor="Black"
+                        TitleColor="#B5B5B5"
+                        ItemsSource="{Binding Cities}" 
+                        ItemDisplayBinding="{Binding City}" 
+                        Margin="40,0,40,0" />
 
-                        <Entry x:Name="Email" 
-                               Keyboard="Email"
-                               Margin="15,0,15,0"
-                               Placeholder="User ID" 
-                               FontSize="Body" 
-                               PlaceholderColor="#a5a5a5" />
+                <Picker x:Name="SalonType" 
+                        Title="Select a salon type" 
+                        FontSize="18"
+                        TextColor="Black"
+                        TitleColor="#B5B5B5"
+                        ItemsSource="{Binding SalonCollection}" 
+                        ItemDisplayBinding="{Binding SalonType}" 
+                        Margin="40,0,40,0" />
 
-                        <Entry x:Name="password" 
-                               Margin="15,0,15,0"
-                               Placeholder="Password" 
-                               FontSize="Body" 
-                               PlaceholderColor="#a5a5a5" 
-                               IsPassword="True" />
+                <Grid Margin="50,10,50,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                    </StackLayout>
+                    <Label Text="Opening Hour: "
+                           x:Name="OpeningHour"
+                           Grid.Row="0" 
+                           Grid.Column="0"
+                           TextColor="Black"
+                           FontSize="18"/>
 
-                    <StackLayout>
+                    <TimePicker Grid.Row="0" 
+                                Grid.Column="1"
+                                x:Name="StartDate"
+                                Format="00:00"
+                                TextColor="#B5B5B5"
+                                Time="{Binding SelectedTime}"
+                                HorizontalOptions="StartAndExpand"
+                                Margin="0,-10,0,50"/>
 
-                        <Label Margin="15,20,15,5" 
-                               Text="Contact Inforamtion" 
-                               FontSize="Medium" 
-                               FontAttributes="Bold" 
-                               TextColor="Black" />
-
-                        <Entry x:Name="address" 
-                               Margin="15,0,15,0" 
-                               Placeholder="Address" 
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
-
-                        <Entry x:Name="phoneNumber"
-                               Keyboard="Numeric"
-                               Margin="15,0,15,0" 
-                               Placeholder="Phone Number" 
-                               PlaceholderColor="#a5a5a5" 
-                               FontSize="Body" />
-
-                    </StackLayout>
-
-
+                    <Label Text="to"
+                           Grid.Row="0" 
+                           Grid.Column="2"
+                           TextColor="Black"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Margin="20,0,0,0"/>
                     
+                    <TimePicker Grid.Row="0" 
+                                Grid.Column="3"
+                                x:Name="EndDate"
+                                Format="00:00"
+                                TextColor="#B5B5B5"
+                                Time="{Binding SelectedTime}" 
+                                HorizontalOptions="StartAndExpand"
+                                Margin="0,-10,0,50"/>
+                </Grid>
+                
+            </StackLayout>
+            
+            
+            <Button x:Name="SignupButton"
+                    Text="Sign up"
+                    BackgroundColor="#3C504C"
+                    TextColor="White"
+                    HeightRequest="50"
+                    WidthRequest="200" 
+                    FontSize="20"
+                    CornerRadius="10"
+                    Margin="40,0,40,100"
+                    VerticalOptions="CenterAndExpand"
+                    Clicked="SignupButton_Clicked" />
 
-                    <Button x:Name="signupButton"
-                            Text="Signup"
-                            BackgroundColor="#3C504C"
-                            TextColor="White"
-                            HeightRequest="50"
-                            WidthRequest="200" 
-                            FontSize="24"
-                            CornerRadius="10"
-                            Margin="20,30,20,10"
-                            Clicked="SignupButton_Clicked"/>
-
-                </StackLayout>
-
-
-            </Frame>
-
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -25,14 +25,7 @@ namespace BeautyBookAdminApp.Views
 
         private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            if (UsernameEntry.Text == "admin123@gmail.com" && PasswordEntry.Text == "123456")
-            {
-                Navigation.PushAsync(new AgendaPage());
-            }
-            else
-            {
-                DisplayAlert("Ops..", "Username or Password is incorrect!", "OK");
-            }
+            
         }
     }
 
