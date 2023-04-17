@@ -5,20 +5,18 @@
              xmlns:local="clr-namespace:BeautyBookAdminApp.ViewModels"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
-    
+
     <ContentPage.Content>
-        
+
         <StackLayout VerticalOptions="StartAndExpand"
                      Margin="40,0,40,0">
 
             <Image Source="BeautyBook_logo.png" 
                    Margin="0,80,0,0" 
                    VerticalOptions="CenterAndExpand" />
-        <StackLayout VerticalOptions="Start"
-                     Margin="30,0,30,0">
-            
+
             <Label Text="Welcome"
-                   FontSize="44"
+                   FontSize="40"
                    FontAttributes="Bold"
                    TextColor="Black"
                    Margin="0,40,0,0"
@@ -26,8 +24,6 @@
 
             <Label Text="on BeautuBook Admin "
                    FontSize="24"
-            <Label Text="to BeautuBook Admin"
-                   FontSize="22"
                    TextColor="#495057"
                    HorizontalOptions="Center" />
 
@@ -69,7 +65,7 @@
                     </EventTrigger>
                 </ImageButton.Triggers>
             </ImageButton>
-            
+
             <Button x:Name="LoginButton"
                     Text="Login"
                     BackgroundColor="#3C504C"
@@ -89,22 +85,22 @@
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center" 
                          Margin="0,120,0,100">
-                
+
                 <Label Text="Don't have an account?"
                        TextColor="#6c757d"
                        FontSize="Small"
                        VerticalOptions="Center" />
-                
+
                 <Label Text="Signup"
                        TextColor="Black"
                        FontSize="Small"
                        FontAttributes="Bold"
                        VerticalOptions="Center">
-                    
+
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnSignupLabelTapped" />
                     </Label.GestureRecognizers>
-                    
+
                 </Label>
             </StackLayout>
         </StackLayout>

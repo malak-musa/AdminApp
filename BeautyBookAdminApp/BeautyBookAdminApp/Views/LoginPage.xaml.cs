@@ -15,7 +15,6 @@ namespace BeautyBookAdminApp.Views
         public LoginPage()
         {
             InitializeComponent();
-
         }
 
         private async void OnSignupLabelTapped(object sender, EventArgs e)
@@ -28,5 +27,4 @@ namespace BeautyBookAdminApp.Views
             
         }
     }
-
 }

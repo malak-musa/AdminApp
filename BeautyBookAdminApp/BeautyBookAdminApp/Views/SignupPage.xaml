@@ -125,12 +125,12 @@
 
                     <TimePicker Grid.Row="0" 
                                 Grid.Column="1"
+                                FontSize="16"
                                 x:Name="StartDate"
-                                Format="00:00"
                                 TextColor="#B5B5B5"
                                 Time="{Binding SelectedTime}"
                                 HorizontalOptions="StartAndExpand"
-                                Margin="0,-10,0,50"/>
+                                Margin="-5,-10,-50,50"/>
 
                     <Label Text="to"
                            Grid.Row="0" 
@@ -142,12 +142,12 @@
                     
                     <TimePicker Grid.Row="0" 
                                 Grid.Column="3"
+                                FontSize="16"
                                 x:Name="EndDate"
-                                Format="00:00"
                                 TextColor="#B5B5B5"
                                 Time="{Binding SelectedTime}" 
                                 HorizontalOptions="StartAndExpand"
-                                Margin="0,-10,0,50"/>
+                                Margin="-5,-10,-50,50"/>
                 </Grid>
                 
             </StackLayout>
