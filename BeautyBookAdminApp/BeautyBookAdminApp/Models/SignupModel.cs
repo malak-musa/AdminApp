@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BeautyBookAdminApp.Models
 {
-    class SignupModel
+    public class SignupModel
     {
         public string SalonName { get; set; }
         public string UserID { get; set; }
@@ -16,6 +16,5 @@ namespace BeautyBookAdminApp.Models
         public string SalonType { get; set; }
         //public string DayOff { get; set; }
         //public bool IsChecked { get; set; }
-
     }
 }
