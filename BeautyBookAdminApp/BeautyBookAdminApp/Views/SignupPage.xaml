@@ -10,6 +10,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
             
             <Label Text="Create Account"
@@ -39,14 +40,14 @@
                        Keyboard="Text"
                        Margin="40,0,40,0"/>
 
-                <Grid>
+                <StackLayout Orientation="Horizontal" Spacing="10">
                     <Entry x:Name="Password"
                            Text="{Binding Password}"
                            Placeholder="Password"
                            FontSize="18"
                            PlaceholderColor="#B5B5B5"
                            TextColor ="Black" 
-                           Margin="40,0,40,0"
+                           Margin="40,0,150,0"
                            Keyboard="Text"
                            IsPassword="{Binding Source={x:Reference ShowPasswordButtonTrigger}, 
                                                 Path = HidePassword}" />
@@ -57,7 +58,7 @@
                                  HeightRequest="20"
                                  Margin="0,0,55,7"
                                  BackgroundColor="White">
-                        
+
                         <ImageButton.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:ShowPassword ShowIcon="eye_icon.png"
@@ -67,7 +68,10 @@
                         </ImageButton.Triggers>
                     </ImageButton>
 
-                </Grid>
+
+                </StackLayout>
+
+                
 
                 <Entry x:Name="PhoneNumber"
                        Text="{Binding PhoneNumber}"
@@ -126,7 +130,7 @@
                     <TimePicker Grid.Row="0" 
                                 Grid.Column="1"
                                 FontSize="16"
-                                x:Name="StartDate"
+                                x:Name="StartTime"
                                 TextColor="#B5B5B5"
                                 Time="{Binding SelectedTime}"
                                 HorizontalOptions="StartAndExpand"
@@ -143,7 +147,7 @@
                     <TimePicker Grid.Row="0" 
                                 Grid.Column="3"
                                 FontSize="16"
-                                x:Name="EndDate"
+                                x:Name="EndTime"
                                 TextColor="#B5B5B5"
                                 Time="{Binding SelectedTime}" 
                                 HorizontalOptions="StartAndExpand"
@@ -167,5 +171,6 @@
 
             
         </StackLayout>
+    </ScrollView>
     </ContentPage.Content>
 </ContentPage>

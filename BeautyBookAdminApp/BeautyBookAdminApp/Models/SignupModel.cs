@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Net.Sockets;
 using System.Text;
 
-namespace BeautyBookAdminApp.Models
+namespace BeautyBookCustomerApp.Models
 {
+    internal class SignupModel
+    {
+
     public class SignupModel
     {
         public string SalonName { get; set; }
