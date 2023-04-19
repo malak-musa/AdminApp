@@ -16,5 +16,15 @@ namespace BeautyBookAdminApp.Views
         {
             InitializeComponent();
         }
+
+        private void AcceptButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RejectButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

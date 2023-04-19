@@ -10,16 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AgendaPage : ContentPage
+    public partial class Page1 : TabbedPage
     {
-        public AgendaPage()
+        public Page1()
         {
             InitializeComponent();
-        }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        }
+        private async void OnBackButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AppointmentResponePage());
+            await Navigation.PopAsync();
         }
     }
 }
