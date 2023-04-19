@@ -1,5 +1,4 @@
-﻿using Firebase.Database;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SalonProfilePage : ContentPage
+    public partial class Page1 : TabbedPage
     {
-        
-        public SalonProfilePage()
+        public Page1()
         {
             InitializeComponent();
-        }
 
-        private async void EditInformation_Clicked(object sender, EventArgs e)
+        }
+        private async void OnBackButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditInfromationProfilePage());
+            await Navigation.PopAsync();
         }
-
     }
 }
