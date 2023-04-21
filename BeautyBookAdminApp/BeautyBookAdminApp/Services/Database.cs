@@ -12,7 +12,6 @@ namespace beautyBookAdmin.Services
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://beautybookapp-a44e5-default-rtdb.europe-west1.firebasedatabase.app/");
 
-
         public async Task<bool> SaveSalonInfo(SalonInformationModel salon)
         {
             var data = await firebaseClient.Child(nameof(SalonProfileViewmodel)).PostAsync(JsonConvert.SerializeObject(salon));
@@ -23,8 +22,7 @@ namespace beautyBookAdmin.Services
             }
             return false;
         }
-
-       
+        
         public async Task<bool> Login(string Username, string Password)
         {
 
@@ -32,7 +30,7 @@ namespace beautyBookAdmin.Services
             
                 foreach (var item in salonInfo)
                 {
-                    if (item.Object.userID == Username && item.Object.password == Password)
+                    if (item.Object.UserID == Username && item.Object.Password == Password)
                     {
                         return true;
                     }

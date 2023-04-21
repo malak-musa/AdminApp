@@ -18,7 +18,8 @@
                          WidthRequest="50"
                          HeightRequest="50"
                          CornerRadius="50"
-                         HorizontalOptions="StartAndExpand"/>
+                         HorizontalOptions="StartAndExpand"
+                         Clicked="ImageButton_Clicked"/>
 
             <Label Grid.Column="1" 
                    Text="Agenda"
@@ -132,7 +133,7 @@
                                HeightRequest="50"/>
 
                         <Label Grid.Column="1"
-                               Text="oxxy"
+                               Text="Malak"
                                FontSize="18"
                                TextColor="Black"
                                Margin="0,0,0,0"/>
@@ -156,7 +157,8 @@
                                 HeightRequest="35"
                                 VerticalOptions="End"
                                 HorizontalOptions="End"
-                                Margin="30,0,0,0"/>
+                                Margin="30,0,0,0"
+                                Clicked="ImageButton_Clicked"/>
                     </Grid>
                 </Frame>
                 

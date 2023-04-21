@@ -5,7 +5,17 @@
              BackgroundColor="White">
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="40,40,40,0">
+            <Label Text="Add Service"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="24"/>
+
+            <Frame>
+                <Entry Placeholder="Add a service"
+                        FontSize="18"
+                        TextColor="Black"/>
+            </Frame>
             
         </StackLayout>
     </ContentPage.Content>

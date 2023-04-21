@@ -21,5 +21,10 @@ namespace BeautyBookAdminApp.Views
         {
             await Navigation.PushAsync(new AppointmentResponePage());
         }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProfileServices());
+        }
     }
 }

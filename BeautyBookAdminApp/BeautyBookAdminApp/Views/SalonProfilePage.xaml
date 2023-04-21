@@ -3,6 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.SalonProfilePage"
              BackgroundColor="White">
+
+    <NavigationPage.TitleView>
+        <ContentView>
+            <Label Text="My Salon"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand" />
+        </ContentView>
+    </NavigationPage.TitleView>
     
     <ContentPage.Content>
         <StackLayout>
@@ -15,7 +26,7 @@
 
                     <StackLayout Orientation="Vertical" Margin="20,10,0,0">
                         <Label Text="&#x0a;&#x0a;&#x0a;"/>
-                        <Label Text="{Binding salonName}"  FontSize="Large" TextColor="Black" />
+                        <Label Text="Bana Salon" Margin="10" FontSize="Large" TextColor="Black" />
                         <Button Text="Edit Information" 
                             FontSize="Small" 
                             BackgroundColor="#3C504C" 
@@ -30,7 +41,6 @@
                     </StackLayout>
 
                 </StackLayout>
-
 
                 <BoxView Color="#d9d9d9" HeightRequest="1" WidthRequest="1000" 
             HorizontalOptions="CenterAndExpand" Margin="10,30,10,30" />
@@ -50,11 +60,7 @@
                     </StackLayout>
 
 
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="calender_icon.png" WidthRequest="30" HeightRequest="30" Margin="6,0,0,0"/>
-                        <Label Text="Days Off Monday" FontSize="Small"  Margin="3,5,0,0" />
-                    </StackLayout>
-
+                   
                     <StackLayout Orientation="Horizontal" Spacing="10">
                         <Image Source="call_icon.png" WidthRequest="30" HeightRequest="30" Margin="6,0,0,0"/>
                         <Label Text="00972500000" FontSize="Small"  Margin="3,5,0,0" />

@@ -9,7 +9,7 @@
     <ContentPage.Content>
 
         <StackLayout VerticalOptions="StartAndExpand"
-                     Margin="40,-70,40,0">
+                     Margin="40,0,40,0">
 
             <Image Source="BeautyBook_logo.png" 
                    Margin="0,80,0,0" 

@@ -1,4 +1,5 @@
 ﻿using BeautyBookAdminApp.Views;
+using LiteDB;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace BeautyBookAdminApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new AgendaPage());
         }
 
         protected override void OnStart()

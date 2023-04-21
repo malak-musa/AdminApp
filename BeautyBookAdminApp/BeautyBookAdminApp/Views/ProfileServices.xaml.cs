@@ -10,13 +10,13 @@ using Xamarin.Forms.Xaml;
 namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : TabbedPage
+    public partial class ProfileServices : TabbedPage
     {
-        public Page1()
+        public ProfileServices()
         {
             InitializeComponent();
-
         }
+
         private async void OnBackButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

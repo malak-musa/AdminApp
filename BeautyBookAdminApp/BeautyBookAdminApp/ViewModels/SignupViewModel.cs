@@ -1,5 +1,5 @@
-﻿using BeautyBookAdminApp.Models;
-using BeautyBookAdminApp.Views;
+﻿using BeautyBookAdminApp.Views;
+using BeautyBookCustomerApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,28 +14,28 @@ namespace BeautyBookAdminApp.ViewModels
 {
     class SignupViewModel
     {
-        public IList<SignupModel> SalonCollection { get; set; }
-        public IList<SignupModel> Cities { get; set; }
+        public IList<SalonInformationModel> SalonCollection { get; set; }
+        public IList<SalonInformationModel> Cities { get; set; }
 
         public SignupViewModel()
         {
             // Salon Types
-            SalonCollection = new ObservableCollection<SignupModel>();
-            SalonCollection.Add(new SignupModel { SalonType = "Men's Salon" });
-            SalonCollection.Add(new SignupModel { SalonType = "Women's Salon" });
-            SalonCollection.Add(new SignupModel { SalonType = "Unisex Salon" });
+            SalonCollection = new ObservableCollection<SalonInformationModel>();
+            SalonCollection.Add(new SalonInformationModel { SalonType = "Men's Salon" });
+            SalonCollection.Add(new SalonInformationModel { SalonType = "Women's Salon" });
+            SalonCollection.Add(new SalonInformationModel { SalonType = "Unisex Salon" });
 
             // Cities
-            Cities = new ObservableCollection<SignupModel>();
-            Cities.Add(new SignupModel { City = "Jerusalem" });
-            Cities.Add(new SignupModel { City = "Bethlehem" });
-            Cities.Add(new SignupModel { City = "Hebron" });
-            Cities.Add(new SignupModel { City = "Sabastia" });
-            Cities.Add(new SignupModel { City = "Jericho" });
-            Cities.Add(new SignupModel { City = "Ramallah" });
-            Cities.Add(new SignupModel { City = "Nablus" });
-            Cities.Add(new SignupModel { City = "Jenin" });
-            Cities.Add(new SignupModel { City = "Tulkarem" });
+            Cities = new ObservableCollection<SalonInformationModel>();
+            Cities.Add(new SalonInformationModel { City = "Jerusalem" });
+            Cities.Add(new SalonInformationModel { City = "Bethlehem" });
+            Cities.Add(new SalonInformationModel { City = "Hebron" });
+            Cities.Add(new SalonInformationModel { City = "Sabastia" });
+            Cities.Add(new SalonInformationModel { City = "Jericho" });
+            Cities.Add(new SalonInformationModel { City = "Ramallah" });
+            Cities.Add(new SalonInformationModel { City = "Nablus" });
+            Cities.Add(new SalonInformationModel { City = "Jenin" });
+            Cities.Add(new SalonInformationModel { City = "Tulkarem" });
         }
     }
 }

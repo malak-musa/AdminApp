@@ -22,11 +22,6 @@ namespace BeautyBookAdminApp.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AgendaPage());
-        }
-
-        private async void LoginButton_Clicked(object sender, EventArgs e)
-        {
             bool isLogin = await _userDB.Login(Username.Text, Password.Text);
 
             if (isLogin)
@@ -37,10 +32,12 @@ namespace BeautyBookAdminApp.Views
             {
                 await DisplayAlert("Error", "Incorrect username or password", "OK");
             }
-        
+        }
+
         private async void OnSignupLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignupPage());
+
         }
     }
 }

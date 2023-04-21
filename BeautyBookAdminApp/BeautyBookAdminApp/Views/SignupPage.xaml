@@ -40,40 +40,36 @@
                        Keyboard="Text"
                        Margin="40,0,40,0"/>
 
-                <StackLayout Orientation="Horizontal" Spacing="10">
                     <Entry x:Name="Password"
-                           Text="{Binding Password}"
-                           Placeholder="Password"
-                           FontSize="18"
-                           PlaceholderColor="#B5B5B5"
-                           TextColor ="Black" 
-                           Margin="40,0,150,0"
-                           Keyboard="Text"
-                           IsPassword="{Binding Source={x:Reference ShowPasswordButtonTrigger}, 
-                                                Path = HidePassword}" />
+                   Text="{Binding Password}"
+                   Placeholder="Password"
+                   FontSize="18"
+                   PlaceholderColor="#B5B5B5"
+                   TextColor ="Black" 
+                   Keyboard="Text"
+                   VerticalOptions="FillAndExpand"
+                           Margin="40,0,40,0"
+                   IsPassword="{Binding Source={x:Reference ShowPasswordButtonTrigger}, 
+                                        Path = HidePassword}"/>
 
                     <ImageButton Source="hide_eye_icon.png"
-                                 VerticalOptions="Center"
-                                 HorizontalOptions="End"
-                                 HeightRequest="20"
-                                 Margin="0,0,55,7"
-                                 BackgroundColor="White">
+                         VerticalOptions="End"
+                         HeightRequest="20"
+                         Margin="260,-40,0,0"
+                         BackgroundColor="White">
 
                         <ImageButton.Triggers>
                             <EventTrigger Event="Clicked">
                                 <local:ShowPassword ShowIcon="eye_icon.png"
-                                                                 HideIcon="hide_eye_icon.png"
-                                                                 x:Name="ShowPasswordButtonTrigger"/>
+                                            HideIcon="hide_eye_icon.png"
+                                            x:Name="ShowPasswordButtonTrigger"/>
                             </EventTrigger>
                         </ImageButton.Triggers>
                     </ImageButton>
 
 
-                </StackLayout>
 
-                
-
-                <Entry x:Name="PhoneNumber"
+                    <Entry x:Name="PhoneNumber"
                        Text="{Binding PhoneNumber}"
                        Placeholder="Phone Number"
                        FontSize="18"
