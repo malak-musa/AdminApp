@@ -12,7 +12,7 @@ namespace BeautyBookAdminApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AgendaPage());
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
