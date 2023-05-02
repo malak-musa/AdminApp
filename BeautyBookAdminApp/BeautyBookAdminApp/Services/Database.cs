@@ -1,10 +1,13 @@
 ﻿using BeautyBookAdminApp.ViewModels;
-using BeautyBookCustomerApp.Models;
+using BeautyBookAdminApp.Models;
 using Firebase.Database;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
+using Firebase.Database.Query;
 
 namespace beautyBookAdmin.Services
 {
@@ -21,6 +24,27 @@ namespace beautyBookAdmin.Services
 
             }
             return false;
+        }
+        public async Task<List<FirebaseObject<BookingModel>>> GetBooking()
+        {
+            var requestedList= await firebaseClient.Child("BookingModel").OnceAsync<BookingModel>();
+
+            return requestedList.ToList();
+
+        }
+        public async Task<bool> EditBookingStatus(string objectId,string newStatus)
+        {
+            try
+            {
+                await firebaseClient.Child("BookingModel").Child(objectId).Child("Status").PutAsync<string>(newStatus);
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            
         }
         
         public async Task<bool> Login(string Username, string Password)

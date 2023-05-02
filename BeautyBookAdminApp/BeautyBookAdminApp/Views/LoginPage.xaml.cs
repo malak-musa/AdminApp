@@ -22,7 +22,8 @@ namespace BeautyBookAdminApp.Views
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
-            bool isLogin = await _userDB.Login(Username.Text, Password.Text);
+            bool isLogin = true;
+                //await _userDB.Login(Username.Text, Password.Text);
 
             if (isLogin)
             {

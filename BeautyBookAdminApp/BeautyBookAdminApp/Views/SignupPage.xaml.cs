@@ -1,4 +1,4 @@
-﻿using BeautyBookCustomerApp.Models;
+﻿using BeautyBookAdminApp.Models;
 using Firebase.Auth.Providers;
 using Firebase.Auth;
 using System;
