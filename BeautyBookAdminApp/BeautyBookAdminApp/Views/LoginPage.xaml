@@ -4,7 +4,11 @@
              x:Class="BeautyBookAdminApp.Views.LoginPage"
              xmlns:local="clr-namespace:BeautyBookAdminApp.ViewModels"
              NavigationPage.HasNavigationBar="False"
+              xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewmodels:LoginViewModel/>
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
 
@@ -34,7 +38,7 @@
                    HorizontalOptions="StartAndExpand" />
 
             <Entry x:Name="Username"
-                   Text="{Binding Username}"
+                   Text="{Binding Email}"
                    FontSize="18"
                    Placeholder="Username"
                    PlaceholderColor="#B5B5B5"
@@ -76,7 +80,7 @@
                     FontSize="20"
                     CornerRadius="10"
                     Margin="0,50,0,0"
-                    Clicked="LoginButton_Clicked"/>
+                    Command="{Binding SigInButton}"/>
 
             <Label x:Name="ErrorLabel"
                    TextColor="Red"

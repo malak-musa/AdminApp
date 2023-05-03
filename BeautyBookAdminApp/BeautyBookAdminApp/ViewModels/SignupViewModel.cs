@@ -9,33 +9,54 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.TizenSpecific;
+using Firebase.Auth;
+using System.Windows.Input;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
+using beautyBookAdmin.Services;
 
 namespace BeautyBookAdminApp.ViewModels
 {
     class SignupViewModel
     {
-        public IList<SalonInformationModel> SalonCollection { get; set; }
-        public IList<SalonInformationModel> Cities { get; set; }
+        public string UserID { set; get; }
+        public string Email { set; get; }
+        public string Password { set; get; }
+        public string SalonName { set; get; }
+        public string SalonType { set; get; }
+        public string Address { set; get; }
+        public string OpeningStartHours { set; get; }
+        public string OpeningEndHours { set; get; }
+        public string PhoneNumber { set; get; }
+        public string ConfirmPassword { get; set; }
+        public ICommand SigUpButton { get; }
+
+        private Database _firebase;
 
         public SignupViewModel()
         {
-            // Salon Types
-            SalonCollection = new ObservableCollection<SalonInformationModel>();
-            SalonCollection.Add(new SalonInformationModel { SalonType = "Men's Salon" });
-            SalonCollection.Add(new SalonInformationModel { SalonType = "Women's Salon" });
-            SalonCollection.Add(new SalonInformationModel { SalonType = "Unisex Salon" });
+            _firebase = new Database();
 
-            // Cities
-            Cities = new ObservableCollection<SalonInformationModel>();
-            Cities.Add(new SalonInformationModel { City = "Jerusalem" });
-            Cities.Add(new SalonInformationModel { City = "Bethlehem" });
-            Cities.Add(new SalonInformationModel { City = "Hebron" });
-            Cities.Add(new SalonInformationModel { City = "Sabastia" });
-            Cities.Add(new SalonInformationModel { City = "Jericho" });
-            Cities.Add(new SalonInformationModel { City = "Ramallah" });
-            Cities.Add(new SalonInformationModel { City = "Nablus" });
-            Cities.Add(new SalonInformationModel { City = "Jenin" });
-            Cities.Add(new SalonInformationModel { City = "Tulkarem" });
+            SigUpButton = new Command(async () => await AddUser());
+
+
         }
+
+        private async Task AddUser()
+        {
+            AuthModel addUser = new AuthModel();
+            {
+                addUser.SalonName = SalonName;
+                addUser.SalonType = "womane Salon";
+                addUser.PhoneNumber = PhoneNumber;
+                addUser.Address = Address;
+                addUser.OpeingHoures = OpeningStartHours + " " + OpeningEndHours;
+                addUser.ImagURL = "";
+                addUser.DaysOff = "Monday";
+            }
+            await _firebase.SingUp(addUser,Email,Password);
+        }
+
+
     }
 }
