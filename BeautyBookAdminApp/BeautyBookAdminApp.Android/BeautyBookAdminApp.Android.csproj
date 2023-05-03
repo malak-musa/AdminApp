@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -86,7 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeautyBookAdminApp\BeautyBookAdminApp.csproj">
-      <Project>{CA511823-60D0-4453-9E1A-0EB9A5D881DD}</Project>
+      <Project>{C610A2C2-C04C-4AF3-8ACD-E85A159988A4}</Project>
       <Name>BeautyBookAdminApp</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,5 +1,5 @@
 ﻿using BeautyBookAdminApp.Views;
-using BeautyBookCustomerApp.Models;
+using BeautyBookAdminApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
