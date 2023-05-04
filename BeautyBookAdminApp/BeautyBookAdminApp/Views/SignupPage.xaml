@@ -30,15 +30,15 @@
                        TextColor ="Black" 
                        Keyboard="Text"
                        Margin="40,30,40,0"/>
-
-                <Entry x:Name="UserID"
-                       Text="{Binding UserID}"
-                       Placeholder="User ID"
+                    <Entry x:Name="Email"
+                       Text="{Binding Email}"
+                       Placeholder="Email"
                        FontSize="18"
                        PlaceholderColor="#B5B5B5"
                        TextColor ="Black" 
                        Keyboard="Text"
-                       Margin="40,0,40,0"/>
+                       Margin="40,30,40,0"/>
+
 
                     <Entry x:Name="Password"
                    Text="{Binding Password}"
@@ -87,14 +87,7 @@
                        Keyboard="Text"
                        Margin="40,0,40,0"/>
 
-                <Picker x:Name="City" 
-                        Title="Select a city" 
-                        FontSize="18"
-                        TextColor="Black"
-                        TitleColor="#B5B5B5"
-                        ItemsSource="{Binding Cities}" 
-                        ItemDisplayBinding="{Binding City}" 
-                        Margin="40,0,40,0" />
+              
 
                 <Picker x:Name="SalonType" 
                         Title="Select a salon type" 
@@ -128,7 +121,7 @@
                                 FontSize="16"
                                 x:Name="StartTime"
                                 TextColor="#B5B5B5"
-                                Time="{Binding SelectedTime}"
+                                Time="{Binding OpeningStartHours}"
                                 HorizontalOptions="StartAndExpand"
                                 Margin="-5,-10,-50,50"/>
 
@@ -145,7 +138,7 @@
                                 FontSize="16"
                                 x:Name="EndTime"
                                 TextColor="#B5B5B5"
-                                Time="{Binding SelectedTime}" 
+                                Time="{Binding OpeningEndHours}" 
                                 HorizontalOptions="StartAndExpand"
                                 Margin="-5,-10,-50,50"/>
                 </Grid>
@@ -163,7 +156,8 @@
                     CornerRadius="10"
                     Margin="40,0,40,100"
                     VerticalOptions="CenterAndExpand"
-                    Clicked="SignupButton_Clicked" />
+                     Command="{Binding SigUpButton}"
+                    />
 
             
         </StackLayout>

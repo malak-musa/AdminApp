@@ -6,16 +6,15 @@ namespace BeautyBookAdminApp.Models
 {
     public class SalonInformationModel
     {
-        public string UserID { set; get; }
-        public string Password { set; get; }
-        public string SalonName { set; get; }
-        public string SalonType { set; get; }
-        public string Address { set; get; }
-        public string City { set; get; }
-        public string Services { set; get; }
-        public string OpeningStartHours { set; get; }
-        public string OpeningEndHours { set; get; }
+  
+        public string ImagURL { get; set; }
+        public string Address { get; set; }
+        public string SalonName { get; set; }
+        public string DaysOff { get; set; }
+        public string OpeingHoures { get; set; }
+        public string SalonType { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public string phoneNumber { set; get; }
+        public string userId { get; set; }
     }
 }
