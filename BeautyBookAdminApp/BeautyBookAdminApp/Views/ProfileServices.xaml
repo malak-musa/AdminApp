@@ -6,8 +6,6 @@
             NavigationPage.HasNavigationBar="False"
             BarBackgroundColor="#3C504C">
 
-    
-
     <TabbedPage.Children>
         <NavigationPage Title="Profile">
             <x:Arguments>

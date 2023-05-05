@@ -1,4 +1,4 @@
-﻿using beautyBookAdmin.Services;
+﻿using BeautyBookAdminApp.Services;
 using BeautyBookAdminApp.Models;
 using System;
 using System.Collections.Generic;
@@ -18,15 +18,12 @@ namespace BeautyBookAdminApp.ViewModels
 
         public LoginViewModel() {
             _firebase = new Database();
-
             SigInButton = new Command(async () => await SignIn());
         }
 
         private async Task SignIn()
-        {
-          
+        { 
             await _firebase.SingIn(Email, Password);
         }
-
     }
 }

@@ -1,11 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              x:Class="BeautyBookAdminApp.Views.AddSercivesPage"
              BackgroundColor="White">
-    
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddServicesViewModel/>
+    </ContentPage.BindingContext>
+
+    <NavigationPage.TitleView>
+        <ContentView>
+            <Label Text="My Salon"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand" />
+        </ContentView>
+    </NavigationPage.TitleView>
+
     <ContentPage.Content>
         <StackLayout Margin="40,40,40,0">
+            
             <Label Text="Add Service"
                    TextColor="Black"
                    FontAttributes="Bold"
@@ -13,8 +30,8 @@
 
             <Frame>
                 <Entry Placeholder="Add a service"
-                        FontSize="18"
-                        TextColor="Black"/>
+                       FontSize="18"
+                       TextColor="Black"/>
             </Frame>
             
         </StackLayout>

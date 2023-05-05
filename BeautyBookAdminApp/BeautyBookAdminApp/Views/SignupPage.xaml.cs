@@ -10,20 +10,16 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using beautyBookAdmin.Services;
+using BeautyBookAdminApp.Services;
 
 namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignupPage : ContentPage
     {
-       
         public SignupPage()
         {
             InitializeComponent();
-
-            //StartDate.Time = DateTime.Now.TimeOfDay;
-            //EndDate.Time = DateTime.Now.TimeOfDay;
         }
 
         protected override void OnAppearing()
@@ -38,9 +34,6 @@ namespace BeautyBookAdminApp.Views
             base.OnDisappearing();
             var navigationPage = Application.Current.MainPage as NavigationPage;
             navigationPage.BarBackgroundColor = Color.White;
-        }
-
-       
-        
+        }   
     } 
 }

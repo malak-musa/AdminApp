@@ -17,7 +17,7 @@ namespace BeautyBookAdminApp
             MainPage = new NavigationPage(new LoginPage());
         }
 
-        protected override async void  OnStart()
+        protected override async void OnStart()
         {
             var oauth_token = await SecureStorage.GetAsync("oauth_token");
             if (!string.IsNullOrEmpty(oauth_token))
@@ -27,9 +27,7 @@ namespace BeautyBookAdminApp
             else
             {
                 MainPage = new NavigationPage(new LoginPage());
-
             }
-
         }
 
         protected override void OnSleep()

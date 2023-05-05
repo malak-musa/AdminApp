@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using beautyBookAdmin.Services;
+using BeautyBookAdminApp.Services;
 using Xamarin.CommunityToolkit.ObjectModel;
 using BeautyBookAdminApp.Models;
 using Firebase.Database;
 
 namespace BeautyBookAdminApp.ViewModels
 {
-    public class AgendaViewmodel : ObservableObject
+    public class AgendaViewModel : ObservableObject
     {
-
         public Database database;
         FirebaseObject<BookingModel> _selectedItem;
         public FirebaseObject<BookingModel> SelectedItem
@@ -27,21 +26,14 @@ namespace BeautyBookAdminApp.ViewModels
         }
         public List<FirebaseObject<BookingModel>> RequestedList { set; get; }
 
-        public AgendaViewmodel()
+        public AgendaViewModel()
         {
             database = new Database();
-            var t=Task.Run(async() =>
+            var t = Task.Run(async() =>
             {
                 RequestedList = await database.GetBooking();
             });
             t.Wait();
-            
         }
-
-
-        //public async Task()
-        //{
-        //    awa
-        //}
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BeautyBookAdminApp.ViewModels
 {
-    internal class EditInformationProfileViewmodel
+    public class EditInformationProfileViewModel
     {
     }
 }

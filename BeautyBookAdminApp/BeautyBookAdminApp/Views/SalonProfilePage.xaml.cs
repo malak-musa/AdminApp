@@ -13,7 +13,6 @@ namespace BeautyBookAdminApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SalonProfilePage : ContentPage
     {
-        
         public SalonProfilePage()
         {
             InitializeComponent();
@@ -23,6 +22,5 @@ namespace BeautyBookAdminApp.Views
         {
             await Navigation.PushAsync(new EditInfromationProfilePage());
         }
-
     }
 }

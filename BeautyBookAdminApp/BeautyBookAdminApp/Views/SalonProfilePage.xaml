@@ -2,11 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.SalonProfilePage"
-                  xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
+             xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              BackgroundColor="White">
+    
     <ContentPage.BindingContext>
-        <viewmodels:SalonProfileViewmodel/>
+        <viewmodels:SalonProfileViewModel/>
     </ContentPage.BindingContext>
+    
     <NavigationPage.TitleView>
         <ContentView>
             <Label Text="My Salon"

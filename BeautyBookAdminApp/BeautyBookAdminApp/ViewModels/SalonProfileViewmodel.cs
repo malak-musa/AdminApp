@@ -1,4 +1,4 @@
-﻿using beautyBookAdmin.Services;
+﻿using BeautyBookAdminApp.Services;
 using BeautyBookAdminApp.Models;
 using BeautyBookAdminApp.ViewModel;
 using System;
@@ -10,24 +10,19 @@ using Xamarin.Essentials;
 
 namespace BeautyBookAdminApp.ViewModels
 {
-    public class SalonProfileViewmodel:BaseViewModel
+    public class SalonProfileViewModel : BaseViewModel
     {
         Database _firebase;
         private ObservableCollection<SalonInformationModel> _profile;
-
         private static string _accessToken { get; set; }
 
-        public SalonProfileViewmodel()
+        public SalonProfileViewModel()
         {
             AccessToken();
             _firebase = new Database();
-          
-
             Profile = new ObservableCollection<SalonInformationModel>();
             Profile = _firebase.getSalonProfile();
             Profile.CollectionChanged += Serviceschanged;
-           
-
         }
 
         private async void AccessToken()
@@ -51,7 +46,6 @@ namespace BeautyBookAdminApp.ViewModels
             }
         }
 
-      
         private string _salonName;
         public string SalonName
         {
@@ -62,6 +56,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
+
         private string _ImagURL;
         public string ImagURL
         {
@@ -72,6 +67,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        
         private string _address;
         public string Address
         {
@@ -82,7 +78,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         private string _daysOff;
         public string DaysOff
         {
@@ -93,7 +89,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         private string _opeingHoures;
         public string OpeingHoures
         {
@@ -104,7 +100,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         private string _salonType;
         public string SalonType
         {
@@ -115,6 +111,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
+        
         private string _phoneNumber;
         public string PhoneNumber
         {
@@ -125,27 +122,23 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        
         private void Serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 SalonInformationModel profilePageModel = e.NewItems[0] as SalonInformationModel;
-                if (profilePageModel.userId == _accessToken)
+                if (profilePageModel.UserId == _accessToken)
                 {
                     SalonName = profilePageModel.SalonName;
                     Address = profilePageModel.Address;
                     DaysOff = profilePageModel.DaysOff;
-                    OpeingHoures = profilePageModel.OpeingHoures;
+                    OpeingHoures = profilePageModel.OpeningHour;
                     ImagURL = profilePageModel.ImagURL;
                     SalonType = profilePageModel.SalonType;
                     PhoneNumber = profilePageModel.PhoneNumber;
-
-
                 }
             }
         }
-
-
     }
 }
