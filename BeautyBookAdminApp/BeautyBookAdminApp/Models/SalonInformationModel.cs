@@ -15,5 +15,6 @@ namespace BeautyBookAdminApp.Models
         public string SalonType { get; set; }
         public string DaysOff { get; set; }
         public string OpeningHour { get; set; }
+        public List<string> Services { set; get; }
     }
 }
