@@ -12,7 +12,7 @@
     <NavigationPage.TitleView>
         <ContentView>
             <Label Text="My Salon"
-                   FontSize="20"
+                   FontSize="22"
                    FontAttributes="Bold"
                    TextColor="White"
                    HorizontalOptions="CenterAndExpand"
@@ -21,19 +21,102 @@
     </NavigationPage.TitleView>
 
     <ContentPage.Content>
-        <StackLayout Margin="40,40,40,0">
-            
+        <StackLayout Margin="30,50,30,0">
+
             <Label Text="Add Service"
                    TextColor="Black"
                    FontAttributes="Bold"
-                   FontSize="24"/>
+                   FontSize="24"
+                   Margin="10,0,0,0"/>
 
-            <Frame>
-                <Entry Placeholder="Add a service"
-                       FontSize="18"
-                       TextColor="Black"/>
+            <Frame x:Name="ServicesFrame" 
+                   CornerRadius="15"
+                   HeightRequest="130"
+                   Padding="20,15,10,10"
+                   BackgroundColor="#EDEDED"
+                   Margin="0,10,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Grid.Column="0" 
+                           x:Name="serviceNameEntry" 
+                           PlaceholderColor="Gray"
+                           FontSize="20"
+                           Margin="0,0,-50,0"
+                           Placeholder="Add New Service" />
+
+                    <ImageButton Grid.Column="1"
+                                 Margin="70,0,5,0"
+                                 BackgroundColor="#EDEDED" 
+                                 Source="add_icon.png" 
+                                 Clicked="OnAddServiceClicked" />
+                </Grid>
             </Frame>
             
+            <Label x:Name="errorMessage" 
+                   Margin="10,5,0,0"
+                   TextColor="#FF5A5A"
+                   IsVisible="false"/>
+
+            <Label x:Name="SalonServiceLable" 
+                   Text="Salon Service"
+                   IsVisible="false"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   FontSize="22"
+                   Padding="10,40,0,5"/>
+
+            <CollectionView x:Name="serviceListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="White">
+                            <Frame HeightRequest="30"
+                                   CornerRadius="15"
+                                   BorderColor="Transparent"
+                                   Margin="0,10,0,0"
+                                   Padding="10,10,0,10"
+                                   BackgroundColor="#EDEDED">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Margin="10,0,0,0"
+                                        Grid.Column="0" 
+                                        Text="{Binding Name}"
+                                        FontSize="20"
+                                        TextColor="Black"/>
+
+                                    <ImageButton Grid.Column="1"
+                                                 Source="delete_icon.png" 
+                                                 Margin="50,0,-30,0"
+                                                 Clicked="OnDeleteServiceClicked" 
+                                                 BackgroundColor="#ececec"
+                                                 CommandParameter="{Binding .}"/>
+
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button x:Name="SaveButton"
+                    Text="Save All"
+                    BackgroundColor="#3C504C"
+                    TextColor="White"
+                    HeightRequest="50"
+                    WidthRequest="200" 
+                    FontSize="20"
+                    CornerRadius="10"
+                    Margin="80,0,80,80"
+                    Padding="10"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="OnSaveClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
