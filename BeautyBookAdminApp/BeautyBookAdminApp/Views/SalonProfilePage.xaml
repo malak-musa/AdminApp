@@ -12,7 +12,7 @@
     <NavigationPage.TitleView>
         <ContentView>
             <Label Text="My Salon"
-                   FontSize="20"
+                   FontSize="22"
                    FontAttributes="Bold"
                    TextColor="White"
                    HorizontalOptions="CenterAndExpand"
@@ -27,22 +27,19 @@
                 <Image Source="profile_cover.jpg" Aspect="AspectFill" HeightRequest="190" Margin="-10,-10,-10,-70"/>
 
                 <StackLayout Orientation="Horizontal">
-                    <Image Source="salon_logo.png" WidthRequest="140" HeightRequest="120" Margin="0,40,0,0" />
+                    <Image Source="salon_logo.png" WidthRequest="130" HeightRequest="120" Margin="0,40,0,0" />
 
                     <StackLayout Orientation="Vertical" Margin="20,10,0,0">
                         <Label Text="&#x0a;&#x0a;&#x0a;"/>
-                        <Label Text="{Binding SalonName}" Margin="10" FontSize="Large" TextColor="Black" />
+                        <Label Text="{Binding SalonName}" Margin="5,0,0,10" FontSize="Large" TextColor="Black" />
                         <Button Text="Edit Information" 
-                            FontSize="Small" 
-                            BackgroundColor="#3C504C" 
-                            TextColor="White" 
-                            CornerRadius="5" 
-                            HeightRequest="35"
-                            Padding="5" 
-                            Clicked="EditInformation_Clicked"/>
-                        <StackLayout Orientation="Horizontal" Margin="-30,0,0,0" >
-
-                        </StackLayout>
+                                FontSize="Small" 
+                                BackgroundColor="#3C504C" 
+                                TextColor="White" 
+                                CornerRadius="5" 
+                                HeightRequest="40"
+                                Padding="10"
+                                Clicked="EditInformation_Clicked"/>
                     </StackLayout>
 
                 </StackLayout>

@@ -4,20 +4,21 @@
             xmlns:views="clr-namespace:BeautyBookAdminApp.Views"
             x:Class="BeautyBookAdminApp.Views.ProfileServices"
             NavigationPage.HasNavigationBar="False"
-            BarBackgroundColor="#3C504C">
+            BarBackgroundColor="#AFC4C0">
 
-    <TabbedPage.Children>
+    <TabbedPage.Children> 
+        
         <NavigationPage Title="Profile">
             <x:Arguments>
                 <views:SalonProfilePage/>
             </x:Arguments>
         </NavigationPage>
-        
+
         <NavigationPage Title="Services">
             <x:Arguments>
                 <views:AddSercivesPage/>
             </x:Arguments>
         </NavigationPage>
-
+        
     </TabbedPage.Children>
 </TabbedPage>
