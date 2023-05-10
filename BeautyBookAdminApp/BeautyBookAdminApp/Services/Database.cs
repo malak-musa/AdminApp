@@ -15,6 +15,7 @@ using System.Runtime.CompilerServices;
 using Xamarin.Essentials;
 using BeautyBookAdminApp;
 using BeautyBookAdminApp.Views;
+using LiteDB;
 
 namespace BeautyBookAdminApp.Services
 {
@@ -153,6 +154,21 @@ namespace BeautyBookAdminApp.Services
         {
             var salon = firebaseClient.Child("SalonProfile").AsObservable<SalonInformationModel>().AsObservableCollection();
             return salon;
+        }
+
+        public async Task<bool> AddSalonServices(string salonId, List<string> serviceNames)
+        {
+            try
+            {
+            await firebaseClient.Child("SalonProfile").Child(salonId).Child("Services").PatchAsync<List<string>>(serviceNames);
+            return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+
         }
     }
 }

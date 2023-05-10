@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static BeautyBookAdminApp.ViewModels.AddServicesViewModel;
@@ -74,7 +74,8 @@ namespace BeautyBookAdminApp.Views
         {
             List<string> serviceNames = services.Select(s => s.Name).ToList();
             salonModel.Services = serviceNames;
-            bool isSave = await _userDB.SaveSalonInfo(salonModel);
+            string salonId = await SecureStorage.GetAsync("oauth_token");
+            bool isSave = await _userDB.AddSalonServices( salonId , serviceNames);
             if (isSave)
             {
                 await DisplayAlert("Added services", "Services saved successfully", "ok");

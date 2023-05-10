@@ -33,7 +33,7 @@ namespace BeautyBookAdminApp.Views
         {
             base.OnDisappearing();
             var navigationPage = Application.Current.MainPage as NavigationPage;
-            navigationPage.BarBackgroundColor = Color.White;
+            //navigationPage.BarBackgroundColor = Color.White;
         }   
     } 
 }

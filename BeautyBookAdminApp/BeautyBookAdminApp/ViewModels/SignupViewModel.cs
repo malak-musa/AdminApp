@@ -71,6 +71,7 @@ namespace BeautyBookAdminApp.ViewModels
                 addUser.Address = Address;
                 addUser.OpeningHour = OpeningStartHour + "-" + OpeningEndHour;
                 addUser.ImagURL = "";
+                addUser.Services = null;
                 //addUser.DaysOff = "Monday";
             }
             await _firebase.SingUp(addUser,Email,Password);
