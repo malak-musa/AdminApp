@@ -3,28 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.SalonProfilePage"
              xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
     
     <ContentPage.BindingContext>
         <viewmodels:SalonProfileViewModel/>
     </ContentPage.BindingContext>
-    
-    <NavigationPage.TitleView>
-        <ContentView>
-            <Label Text="My Salon"
-                   FontSize="22"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand" />
-        </ContentView>
-    </NavigationPage.TitleView>
-    
+
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Padding="10">
 
-                <Image Source="profile_cover.jpg" 
+                <Image Source="background_salon.jpg" 
                        Aspect="AspectFill" 
                        HeightRequest="190" 
                        Margin="-10,-10,-10,-70"/>

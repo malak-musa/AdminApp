@@ -80,7 +80,7 @@
                     FontSize="20"
                     CornerRadius="10"
                     Margin="0,50,0,0"
-                    Command="{Binding SigInButton}"/>
+                    Clicked="LoginButton_Clicked"/>
 
             <Label x:Name="ErrorLabel"
                    TextColor="Red"

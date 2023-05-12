@@ -162,7 +162,7 @@
                         CornerRadius="10"
                         Margin="40,0,40,100"
                         VerticalOptions="CenterAndExpand"
-                        Command="{Binding SigUpButton}"/>
+                        Clicked="SignupButton_Clicked"/>
             
             </StackLayout>
         </ScrollView>

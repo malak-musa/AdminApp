@@ -13,7 +13,7 @@
             </Grid.ColumnDefinitions>
 
             <ImageButton Grid.Column="0" 
-                         Source="salon_logo.png" 
+                         Source="salon_avatar.png"
                          BackgroundColor="#cccccc"
                          WidthRequest="50"
                          HeightRequest="50"
@@ -25,9 +25,9 @@
                    Text="Agenda"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="Black"
+                   TextColor="White"
                    VerticalOptions="Center"
-                   Margin="-30,0,0,0"/>
+                   Margin="-40,0,0,0"/>
 
         </Grid>
     </NavigationPage.TitleView>
@@ -79,7 +79,6 @@
                 <CollectionView ItemsSource="{Binding RequestedList}"
                                 SelectionChanged="CollectionView_SelectionChanged"
                                 SelectionMode="Single">
-
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid BackgroundColor="White">
@@ -140,60 +139,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-               
-                <!--<Frame HeightRequest="60"
-                       Margin="30,0,30,20"
-                       CornerRadius="20"
-                       BackgroundColor="#D5E8E4">
-
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Image Grid.RowSpan="2"
-                               Source="user_image.png"
-                               Aspect="AspectFill"
-                               WidthRequest="70"
-                               HeightRequest="50"/>
-
-                        <Label Grid.Column="1"
-                               Text="Malak"
-                               FontSize="18"
-                               TextColor="Black"
-                               Margin="0,0,0,0"/>
-
-                        <Label Grid.Column="1"
-                               Grid.Row="1"
-                               Text="19 April 2023 6:00 PM"
-                               FontSize="14"
-                               TextColor="Black"                             
-                               VerticalOptions="End"
-                               Margin="10,0,0,0"/>
-
-                        <Button Grid.Column="2"
-                                Grid.Row="1"
-                                Text="view"
-                                FontSize="Default"
-                                TextColor="White"
-                                BackgroundColor="#3C504C"
-                                CornerRadius="10"
-                                WidthRequest="65"
-                                HeightRequest="35"
-                                VerticalOptions="End"
-                                HorizontalOptions="End"
-                                Margin="30,0,0,0"
-                                Clicked="ImageButton_Clicked"/>
-                    </Grid>
-                </Frame>-->
-                
+                               
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

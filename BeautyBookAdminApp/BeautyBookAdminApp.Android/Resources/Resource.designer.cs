@@ -22068,7 +22068,7 @@ namespace BeautyBookAdminApp.Droid
 			public const int avd_show_password = 2131165271;
 			
 			// aapt resource value: 0x7F070058
-			public const int BeautyBook = 2131165272;
+			public const int background_salon = 2131165272;
 			
 			// aapt resource value: 0x7F070059
 			public const int BeautyBook_logo = 2131165273;
@@ -22257,34 +22257,28 @@ namespace BeautyBookAdminApp.Droid
 			public const int preference_list_divider_material = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int profile_cover = 2131165335;
+			public const int profile_image = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int profile_image = 2131165336;
+			public const int right_arrow_icon = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int right_arrow_icon = 2131165337;
+			public const int salon_avatar = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int salon_avatar = 2131165338;
+			public const int test_custom_background = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int salon_logo = 2131165339;
+			public const int time_icon = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int test_custom_background = 2131165340;
+			public const int tooltip_frame_dark = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int time_icon = 2131165341;
+			public const int tooltip_frame_light = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int tooltip_frame_dark = 2131165342;
-			
-			// aapt resource value: 0x7F07009F
-			public const int tooltip_frame_light = 2131165343;
-			
-			// aapt resource value: 0x7F0700A0
-			public const int user_image = 2131165344;
+			public const int user_image = 2131165342;
 			
 			static Drawable()
 			{

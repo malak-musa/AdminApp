@@ -28,7 +28,7 @@ namespace BeautyBookAdminApp.Views
 
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfileServices());
+            await Navigation.PushAsync(new SalonProfileTabBarPage());
         }
 
         async void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)

@@ -29,11 +29,9 @@ namespace BeautyBookAdminApp.Views
             navigationPage.BarBackgroundColor = Color.White;
         }
 
-        protected override void OnDisappearing()
+        private async void SignupButton_Clicked(object sender, EventArgs e)
         {
-            base.OnDisappearing();
-            var navigationPage = Application.Current.MainPage as NavigationPage;
-            //navigationPage.BarBackgroundColor = Color.White;
-        }   
+            await Navigation.PushAsync(new AgendaPage());
+        }
     } 
 }

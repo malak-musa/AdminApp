@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProfileServices : TabbedPage
+    public partial class SalonProfileTabBarPage : TabbedPage
     {
-        public ProfileServices()
+        public SalonProfileTabBarPage()
         {
             InitializeComponent();
         }
