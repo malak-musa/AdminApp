@@ -1,12 +1,168 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              x:Class="BeautyBookAdminApp.Views.EditInfromationProfilePage"
              BackgroundColor="White">
-    
+   
+     <ContentPage.BindingContext>
+        <viewmodels:EditInformationProfileViewModel/>
+    </ContentPage.BindingContext>
+   
+    <NavigationPage.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" 
+                    Text="Cancel"
+                    FontSize="16"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start"
+                    TextTransform="Lowercase"
+                    
+                    />
+
+            <Label Grid.Column="1" 
+                   Text="Edit Information"
+                   FontSize="17"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   />
+
+            <Button Grid.Column="2" 
+                    Text="Save"
+                    FontSize="16"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    TextTransform="Lowercase"
+                   
+                    />
+
+        </Grid>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
+         <CollectionView x:Name="myProfile" ItemsSource="{Binding Profile}" >
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
         <StackLayout>
-            
+
+            <Label Text="Change Profile Information"
+                   TextColor="Black"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Start"
+                   Margin="30,30,0,0"/>
+
+            <StackLayout Spacing="10">
+
+                <Entry x:Name="SalonName"
+                       Text="{Binding SalonName}"
+                       Placeholder="Salon Name"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,30,40,0"/>
+
+        
+
+                <Entry x:Name="PhoneNumber"
+                       Text="{Binding PhoneNumber}"
+                       Placeholder="Phone Number"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Telephone"
+                       Margin="40,0,40,0"/>
+
+                <Entry x:Name="Address"
+                       Text="{Binding Address}"
+                       Placeholder="Address"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,0,40,0"/>
+
+                <Picker x:Name="City" 
+                        Title="Select a city" 
+                        FontSize="18"
+                        TextColor="Black"
+                        TitleColor="#B5B5B5"
+                        ItemsSource="{Binding Cities}" 
+                        ItemDisplayBinding="{Binding City}" 
+                        Margin="40,0,40,0" />
+
+                <Picker x:Name="SalonType" 
+                        Title="Select a salon type" 
+                        FontSize="18"
+                        TextColor="Black"
+                        TitleColor="#B5B5B5"
+                        ItemsSource="{Binding SalonCollection}" 
+                        ItemDisplayBinding="{Binding SalonType}" 
+                        Margin="40,0,40,0" />
+
+                <Grid Margin="50,10,50,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Opening Hour: "
+                           x:Name="OpeningHour"
+                           Grid.Row="0" 
+                           Grid.Column="0"
+                           TextColor="Black"
+                           FontSize="18"/>
+
+                    <TimePicker Grid.Row="0" 
+                                Grid.Column="1"
+                                FontSize="16"
+                                x:Name="StartTime"
+                                TextColor="#B5B5B5"
+                                Time="{Binding SelectedTime}"
+                                HorizontalOptions="StartAndExpand"
+                                Margin="-5,-10,-50,50"/>
+
+                    <Label Text="to"
+                           Grid.Row="0" 
+                           Grid.Column="2"
+                           TextColor="Black"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Margin="20,0,0,0"/>
+
+                    <TimePicker Grid.Row="0" 
+                                Grid.Column="3"
+                                FontSize="16"
+                                x:Name="EndTime"
+                                TextColor="#B5B5B5"
+                                Time="{Binding SelectedTime}" 
+                                HorizontalOptions="StartAndExpand"
+                                Margin="-5,-10,-50,50"/>
+                </Grid>
+
+
+
+            </StackLayout>
+
         </StackLayout>
+        </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
     </ContentPage.Content>
 </ContentPage>
