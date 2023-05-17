@@ -50,7 +50,9 @@
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
-         <CollectionView x:Name="myProfile" ItemsSource="{Binding Profile}" >
+
+         <CollectionView x:Name="myProfile" ItemsSource="{Binding MyProfile}" >
+
         <CollectionView.ItemTemplate>
             <DataTemplate>
         <StackLayout>

@@ -13,21 +13,39 @@ namespace BeautyBookAdminApp.ViewModels
     public class EditInformationProfileViewModel: BaseViewModel
     {
         Database _firebase;
-        private ObservableCollection<SalonInformationModel> _profile;
+
         private static string _accessToken { get; set; }
+
+
+        private ObservableCollection<SalonInformationModel> _myprofile;
+        private ObservableCollection<SalonInformationModel> _profile;
+
+
+        public ObservableCollection<SalonInformationModel> MyProfile
+        {
+            get { return _myprofile; }
+            set
+            {
+                _myprofile = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public EditInformationProfileViewModel()
         {
             AccessToken();
             _firebase = new Database();
             Profile = new ObservableCollection<SalonInformationModel>();
+            MyProfile = new ObservableCollection<SalonInformationModel>();
+
             Profile = _firebase.getSalonProfile();
             Profile.CollectionChanged += Serviceschanged;
         }
         private async void AccessToken()
         {
-            try
-            {
+            try{
+
                 _accessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
@@ -54,7 +72,9 @@ namespace BeautyBookAdminApp.ViewModels
                 SalonInformationModel profilePageModel = e.NewItems[0] as SalonInformationModel;
                 if (profilePageModel.UserId==_accessToken)
                 {
-                      Profile.Add(profilePageModel);
+
+                      MyProfile.Add(profilePageModel);
+
                 }
             }
         }
