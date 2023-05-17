@@ -23,7 +23,7 @@ namespace BeautyBookAdminApp.ViewModels
         public string Email { set; get; }
         public string Password { set; get; }
         public string SalonName { set; get; }
-        public string SalonType { set; get; }
+         public string SalonType { set; get; }
         public string City { set; get; }
         public string Address { set; get; }
         public string OpeningStartHour { set; get; }
@@ -34,6 +34,8 @@ namespace BeautyBookAdminApp.ViewModels
         private Database _firebase;
         public IList<SalonInformationModel> SalonCollection { get; set; }
         public IList<SalonInformationModel> Cities { get; set; }
+
+        public string salonType { set; get; }
 
         public SignupViewModel()
         {
@@ -62,6 +64,7 @@ namespace BeautyBookAdminApp.ViewModels
 
         private async Task AddUser()
         {
+           
             AuthModel addUser = new AuthModel();
             {
                 addUser.SalonName = SalonName;
@@ -69,12 +72,12 @@ namespace BeautyBookAdminApp.ViewModels
                 addUser.PhoneNumber = PhoneNumber;
                 addUser.City = City;
                 addUser.Address = Address;
-                addUser.OpeningHour = OpeningStartHour + "-" + OpeningEndHour;
+                addUser.OpeningHour = OpeningStartHour + "--" + OpeningEndHour;
                 addUser.ImagURL = "";
                 addUser.Services = null;
                 //addUser.DaysOff = "Monday";
             }
-            await _firebase.SingUp(addUser,Email,Password);
+           await _firebase.SingUp(addUser,Email,Password);
         }
     }
 }
