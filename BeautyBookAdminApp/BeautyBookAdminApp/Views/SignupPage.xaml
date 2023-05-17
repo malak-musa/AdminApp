@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.SignupPage"
@@ -72,6 +72,8 @@
                            Text="{Binding PhoneNumber}"
                            Placeholder="Phone Number"
                            FontSize="18"
+                           MaxLength="13"
+                          
                            PlaceholderColor="#B5B5B5"
                            TextColor ="Black" 
                            Keyboard="Telephone"
@@ -100,8 +102,11 @@
                             FontSize="18"
                             TextColor="Black"
                             TitleColor="#B5B5B5"
-                            ItemsSource="{Binding SalonCollection}" 
-                            ItemDisplayBinding="{Binding SalonType}" 
+                            ItemsSource="{Binding SalonCollection}"
+                           SelectedIndex="{Binding SalonType}"
+                            ItemDisplayBinding="{Binding SalonType}"
+                   
+
                             Margin="40,0,40,0" />
 
                     <Grid Margin="45,10,50,0">
@@ -162,7 +167,7 @@
                         CornerRadius="10"
                         Margin="40,0,40,100"
                         VerticalOptions="CenterAndExpand"
-                        Clicked="SignupButton_Clicked"/>
+                       Command="{Binding SigUpButton}"/>
             
             </StackLayout>
         </ScrollView>

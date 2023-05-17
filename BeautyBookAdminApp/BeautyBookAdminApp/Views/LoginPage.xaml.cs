@@ -19,10 +19,7 @@ namespace BeautyBookAdminApp.Views
             InitializeComponent();
         }
 
-        private async void LoginButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AgendaPage());
-        }
+      
 
         private async void OnSignupLabelTapped(object sender, EventArgs e)
         {
