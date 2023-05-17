@@ -154,5 +154,25 @@ namespace BeautyBookAdminApp.Services
             var salon = firebaseClient.Child("SalonProfile").AsObservable<SalonInformationModel>().AsObservableCollection();
             return salon;
         }
+
+        public async Task updateProfile(SalonInformationModel control)
+        {
+           string _accessToken = await SecureStorage.GetAsync("oauth_token");
+            var toUpdateInfo = (await firebaseClient.Child("SalonProfile").OnceAsync<SalonInformationModel>())
+                   .FirstOrDefault(item => item.Object.UserId == _accessToken);
+            try
+            {
+
+                await firebaseClient
+                     .Child("SalonProfile")
+                     .Child(toUpdateInfo.Key)
+                     .PutAsync(control);
+            }
+            catch (Exception ex)
+            {
+                await Xamarin.Forms.Shell.Current.DisplayAlert("Failed", ex.Message, "ok");
+            }
+        }
+
     }
 }

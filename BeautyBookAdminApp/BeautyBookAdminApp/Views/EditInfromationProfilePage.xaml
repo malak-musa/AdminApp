@@ -36,22 +36,12 @@
                    HorizontalOptions="Center"
                    />
 
-            <Button Grid.Column="2" 
-                    Text="Save"
-                    FontSize="16"
-                    TextColor="Black"
-                    BackgroundColor="Transparent"
-                    VerticalOptions="Center"
-                    HorizontalOptions="End"
-                    TextTransform="Lowercase"
-                   
-                    />
-
+          
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
 
-         <CollectionView x:Name="myProfile" ItemsSource="{Binding MyProfile}" >
+         <CollectionView x:Name="MyProfile" ItemsSource="{Binding MyProfile}" >
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
@@ -95,21 +85,14 @@
                        Keyboard="Text"
                        Margin="40,0,40,0"/>
 
-                <Picker x:Name="City" 
-                        Title="Select a city" 
-                        FontSize="18"
-                        TextColor="Black"
-                        TitleColor="#B5B5B5"
-                        ItemsSource="{Binding Cities}" 
-                        ItemDisplayBinding="{Binding City}" 
-                        Margin="40,0,40,0" />
-
+             
                 <Picker x:Name="SalonType" 
                         Title="Select a salon type" 
                         FontSize="18"
                         TextColor="Black"
                         TitleColor="#B5B5B5"
-                        ItemsSource="{Binding SalonCollection}" 
+                       
+                        ItemsSource="{Binding SalonType}" 
                         ItemDisplayBinding="{Binding SalonType}" 
                         Margin="40,0,40,0" />
 
@@ -124,44 +107,36 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Label Text="Opening Hour: "
-                           x:Name="OpeningHour"
-                           Grid.Row="0" 
-                           Grid.Column="0"
-                           TextColor="Black"
-                           FontSize="18"/>
+                   
+                    <Entry x:Name="SelectedTime"
+                          
+                       Text="{Binding OpeningHour}"
+                       Placeholder="6:00 AM 9:30 PM"
+                       FontSize="18"
+                       PlaceholderColor="#B5B5B5"
+                       TextColor ="Black" 
+                       Keyboard="Text"
+                       Margin="40,0,40,0"/>
 
-                    <TimePicker Grid.Row="0" 
-                                Grid.Column="1"
-                                FontSize="16"
-                                x:Name="StartTime"
-                                TextColor="#B5B5B5"
-                                Time="{Binding SelectedTime}"
-                                HorizontalOptions="StartAndExpand"
-                                Margin="-5,-10,-50,50"/>
 
-                    <Label Text="to"
-                           Grid.Row="0" 
-                           Grid.Column="2"
-                           TextColor="Black"
-                           FontSize="18"
-                           FontAttributes="Bold"
-                           Margin="20,0,0,0"/>
 
-                    <TimePicker Grid.Row="0" 
-                                Grid.Column="3"
-                                FontSize="16"
-                                x:Name="EndTime"
-                                TextColor="#B5B5B5"
-                                Time="{Binding SelectedTime}" 
-                                HorizontalOptions="StartAndExpand"
-                                Margin="-5,-10,-50,50"/>
+                    
                 </Grid>
 
-
+                    <Button Grid.Column="2" 
+                    Text="Save"
+                    FontSize="16"
+                    TextColor="Black"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center"
+                    HorizontalOptions="End"
+                    TextTransform="Lowercase"
+                    CommandParameter="{Binding .}"
+                    Command="{Binding Path=BindingContext.save,Source={x:Reference MyProfile}}"
+                   
+                    />
 
             </StackLayout>
-
         </StackLayout>
         </DataTemplate>
         </CollectionView.ItemTemplate>
