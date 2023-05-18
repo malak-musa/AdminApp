@@ -49,6 +49,8 @@
                        CornerRadius="20">
 
                     <xamForms:Calendar x:Name="Calendar"
+                                          DateCommand="{Binding ChangeDateCommand}"
+                                       SelectedDate="{Binding SelectedDate}"
                                        BackgroundColor="#F9F9F9"
                                        BorderColor="Transparent"
                                        DatesBackgroundColor="#F9F9F9"
@@ -84,7 +86,7 @@
                        TextColor="Black"
                        Margin="10,30,0,0"
                        FontAttributes="Bold"/>
-                
+
                 <CollectionView ItemsSource="{Binding RequestedList}"
                                 SelectionChanged="CollectionView_SelectionChanged"
                                 SelectionMode="Single">

@@ -6,6 +6,9 @@ using BeautyBookAdminApp.Services;
 using Xamarin.CommunityToolkit.ObjectModel;
 using BeautyBookAdminApp.Models;
 using Firebase.Database;
+using System.Linq;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace BeautyBookAdminApp.ViewModels
 {
@@ -19,21 +22,58 @@ namespace BeautyBookAdminApp.ViewModels
             set
             {
                 if (value != null)
-                    _selectedItem = null;
-                
+                    _selectedItem = value;
+
                 OnPropertyChanged();
             }
         }
-        public List<FirebaseObject<BookingModel>> RequestedList { set; get; }
+        DateTime _selectedDate;
+        private List<FirebaseObject<BookingModel>> requestedList;
+
+        public DateTime SelectedDate
+        {
+            get { return _selectedDate; }
+            set
+            {
+
+                _selectedDate = value;
+
+
+                OnPropertyChanged();
+            }
+        }
+
+        public List<FirebaseObject<BookingModel>> RequestedList { 
+            get => requestedList;
+            set
+            {
+                requestedList = value;
+                OnPropertyChanged();
+            }
+        }
+        public ICommand ChangeDateCommand { set; get; }
 
         public AgendaViewModel()
         {
+            ChangeDateCommand = new Command(ChangeDate);
+            RequestedList = new List<FirebaseObject<BookingModel>>();
             database = new Database();
-            var t = Task.Run(async() =>
-            {
-                RequestedList = await database.GetBooking();
-            });
-            t.Wait();
+
+        }
+        async void ChangeDate()
+        {
+            string Date = "Date: ";
+
+            string dateString = SelectedDate.ToString("MM/dd/yyyy");
+
+            var EditedDate = Date + dateString;
+
+            var booking = await database.GetBooking();
+
+            var filtered = booking.Where(el => el.Object.Date == EditedDate).ToList();
+
+            RequestedList = filtered;
+
         }
     }
 }
