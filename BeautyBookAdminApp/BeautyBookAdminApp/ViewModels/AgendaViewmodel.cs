@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,7 +43,8 @@ namespace BeautyBookAdminApp.ViewModels
             }
         }
 
-        public List<FirebaseObject<BookingModel>> RequestedList { 
+        public List<FirebaseObject<BookingModel>> RequestedList
+        {
             get => requestedList;
             set
             {

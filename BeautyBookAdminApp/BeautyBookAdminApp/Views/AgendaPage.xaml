@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BeautyBookAdminApp.Views.AgendaPage"
@@ -49,7 +49,7 @@
                        CornerRadius="20">
 
                     <xamForms:Calendar x:Name="Calendar"
-                                          DateCommand="{Binding ChangeDateCommand}"
+                                       DateCommand="{Binding ChangeDateCommand}"
                                        SelectedDate="{Binding SelectedDate}"
                                        BackgroundColor="#F9F9F9"
                                        BorderColor="Transparent"
@@ -86,7 +86,7 @@
                        TextColor="Black"
                        Margin="10,30,0,0"
                        FontAttributes="Bold"/>
-
+                
                 <CollectionView ItemsSource="{Binding RequestedList}"
                                 SelectionChanged="CollectionView_SelectionChanged"
                                 SelectionMode="Single">

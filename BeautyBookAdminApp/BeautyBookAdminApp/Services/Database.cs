@@ -25,7 +25,7 @@ namespace BeautyBookAdminApp.Services
     {
         FirebaseClient firebaseClient = new FirebaseClient("https://beautybookapp-a44e5-default-rtdb.europe-west1.firebasedatabase.app/");
         private const string FirebaseApiKey = "AIzaSyA37bTpBm27kjiHDuf5tigFwCmVsxmEYsY";
-
+        readonly FirebaseAuthClient client = new FirebaseAuthClient(config);
         static readonly FirebaseAuthConfig config = new FirebaseAuthConfig{
             ApiKey = FirebaseApiKey,
             AuthDomain = "beautybookapp-a44e5.firebaseapp.com",
@@ -35,7 +35,6 @@ namespace BeautyBookAdminApp.Services
             }
         };
 
-        readonly FirebaseAuthClient client = new FirebaseAuthClient(config);
         public async Task<bool> SaveSalonInfo(SalonInformationModel salon)
         {
             var data = await firebaseClient.Child(nameof(SalonProfileViewModel)).PostAsync(JsonConvert.SerializeObject(salon));
@@ -47,22 +46,20 @@ namespace BeautyBookAdminApp.Services
             return false;
         }
 
-        public async Task SingUp(AuthModel authModel,string email,string password)
+        public async Task SingUp(AuthModel authModel, string email, string password)
         {
             try
             {
-
-
-                var userCredential = await client.CreateUserWithEmailAndPasswordAsync(email,password);
+                var userCredential = await client.CreateUserWithEmailAndPasswordAsync(email, password);
                 authModel.UserId = userCredential.User.Uid;
-              
-                var salonObj=await firebaseClient.Child("SalonProfile").PostAsync(authModel);
-                
+
+                var salonObj = await firebaseClient.Child("SalonProfile").PostAsync(authModel);
+
                 await SecureStorage.SetAsync("salonId", salonObj.Key);
 
                 await SecureStorage.SetAsync("oauth_token", userCredential.User.Uid);
-                
-                if(userCredential.User.Uid!=null)
+
+                if (userCredential.User.Uid != null)
                 {
                     App.Current.MainPage = new NavigationPage(new AgendaPage());
                 }
@@ -96,14 +93,14 @@ namespace BeautyBookAdminApp.Services
             try
             {
                 var userCredential = await client.SignInWithEmailAndPasswordAsync(email, password);
-                
-                string token =  userCredential.User.Uid;
+
+                string token = userCredential.User.Uid;
                 string salonId = await GetSalonId(token);
                 await SecureStorage.SetAsync("oauth_token", token);
                 await SecureStorage.SetAsync("salonId", salonId);
-                if(token !=null)
+                if (token != null)
                 {
-                     App.Current.MainPage = new NavigationPage(new AgendaPage());
+                    App.Current.MainPage = new NavigationPage(new AgendaPage());
                 }
             }
             catch (FirebaseAuthException ex)
@@ -129,52 +126,54 @@ namespace BeautyBookAdminApp.Services
 
         public async Task<IReadOnlyCollection<FirebaseObject<BookingModel>>> GetBooking()
         {
-            var requestedList= await firebaseClient.Child("BookingModel").OnceAsync<BookingModel>();
+            var requestedList = await firebaseClient.Child("BookingModel").OnceAsync<BookingModel>();
 
             return requestedList;
         }
-        
-        public async Task<bool> EditBookingStatus(string objectId,string newStatus)
+
+        public async Task<bool> EditBookingStatus(string objectId, string newStatus)
         {
             try
             {
                 await firebaseClient.Child("BookingModel").Child(objectId).Child("Status").PutAsync<string>(newStatus);
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return false;
             }
-            
+
         }
-        
+
         public ObservableCollection<SalonInformationModel> getSalonProfile()
         {
             var salon = firebaseClient.Child("SalonProfile").AsObservable<SalonInformationModel>().AsObservableCollection();
             return salon;
         }
-        
+
         public async Task<string> GetSalonId(string userId)
         {
             var salonInofo = await firebaseClient.Child("SalonProfile").OnceAsync<SalonInformationModel>();
 
-            var salonId = salonInofo.Where(el=>el.Object.UserId==userId).FirstOrDefault().Key;
+            var salonId = salonInofo.Where(el => el.Object.UserId == userId).FirstOrDefault().Key;
 
             return salonId;
 
         }
+
         public async Task<IEnumerable<Service>> GetSalonServices(string salonId)
         {
             var servicesObj = await firebaseClient.Child("SalonProfile").Child(salonId).Child("Services").OnceAsListAsync<Service>();
             return servicesObj.Select(el => el.Object);
         }
+        
         public async Task<bool> AddSalonServices(string userId, IList<Service> serviceNames)
         {
-            
-            try{
+            try
+            {
                 var salonInofo = await firebaseClient.Child("SalonProfile").OnceAsync<SalonInformationModel>();
-                string salonId=salonInofo.Where(el=>el.Object.UserId==userId).FirstOrDefault()?.Key;
-                if(string.IsNullOrEmpty(salonId))return false;  
+                string salonId = salonInofo.Where(el => el.Object.UserId == userId).FirstOrDefault()?.Key;
+                if (string.IsNullOrEmpty(salonId)) return false;
 
                 await firebaseClient.Child("SalonProfile").Child(salonId).Child("Services").PutAsync<IList<Service>>(serviceNames);
                 return true;
@@ -183,8 +182,26 @@ namespace BeautyBookAdminApp.Services
             {
                 return false;
             }
-
-
         }
+
+        public async Task updateProfile(SalonInformationModel control)
+        {
+            string _accessToken = await SecureStorage.GetAsync("oauth_token");
+            var toUpdateInfo = (await firebaseClient.Child("SalonProfile").OnceAsync<SalonInformationModel>())
+                   .FirstOrDefault(item => item.Object.UserId == _accessToken);
+            try
+            {
+
+                await firebaseClient
+                     .Child("SalonProfile")
+                     .Child(toUpdateInfo.Key)
+                     .PutAsync(control);
+            }
+            catch (Exception ex)
+            {
+                await Xamarin.Forms.Shell.Current.DisplayAlert("Failed", ex.Message, "ok");
+            }
+        }
+
     }
 }
