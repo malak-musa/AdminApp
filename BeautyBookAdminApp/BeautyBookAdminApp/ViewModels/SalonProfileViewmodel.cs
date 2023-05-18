@@ -132,7 +132,7 @@ namespace BeautyBookAdminApp.ViewModels
                 {
                     SalonName = profilePageModel.SalonName;
                     Address = profilePageModel.Address;
-                    DaysOff = profilePageModel.DaysOff;
+
                     OpeingHoures = profilePageModel.OpeningHour;
                     ImagURL = profilePageModel.ImagURL;
                     SalonType = profilePageModel.SalonType;

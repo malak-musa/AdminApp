@@ -51,15 +51,15 @@ namespace BeautyBookAdminApp.ViewModels
 
             // Cities
             Cities = new ObservableCollection<SalonInformationModel>();
-            Cities.Add(new SalonInformationModel { City = "Jerusalem" });
-            Cities.Add(new SalonInformationModel { City = "Bethlehem" });
-            Cities.Add(new SalonInformationModel { City = "Hebron" });
-            Cities.Add(new SalonInformationModel { City = "Sabastia" });
-            Cities.Add(new SalonInformationModel { City = "Jericho" });
-            Cities.Add(new SalonInformationModel { City = "Ramallah" });
-            Cities.Add(new SalonInformationModel { City = "Nablus" });
-            Cities.Add(new SalonInformationModel { City = "Jenin" });
-            Cities.Add(new SalonInformationModel { City = "Tulkarem" });
+            //Cities.Add(new SalonInformationModel { City = "Jerusalem" });
+            //Cities.Add(new SalonInformationModel { City = "Bethlehem" });
+            //Cities.Add(new SalonInformationModel { City = "Hebron" });
+            //Cities.Add(new SalonInformationModel { City = "Sabastia" });
+            //Cities.Add(new SalonInformationModel { City = "Jericho" });
+            //Cities.Add(new SalonInformationModel { City = "Ramallah" });
+            //Cities.Add(new SalonInformationModel { City = "Nablus" });
+            //Cities.Add(new SalonInformationModel { City = "Jenin" });
+            //Cities.Add(new SalonInformationModel { City = "Tulkarem" });
         }
 
         private async Task AddUser()

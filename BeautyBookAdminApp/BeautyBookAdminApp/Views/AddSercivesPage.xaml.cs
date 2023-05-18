@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +17,7 @@ namespace BeautyBookAdminApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddSercivesPage : ContentPage
     {
-        ObservableCollection<Service> services;
+        ObservableRangeCollection<Service> services;
         Service service;
         SalonInformationModel salonModel = new SalonInformationModel();
         Database _userDB = new Database();
@@ -24,7 +25,7 @@ namespace BeautyBookAdminApp.Views
         public AddSercivesPage()
         {
             InitializeComponent();
-            services = new ObservableCollection<Service>();
+            services = new ObservableRangeCollection<Service>();
             serviceListView.ItemsSource = services;
 
         }
@@ -45,9 +46,11 @@ namespace BeautyBookAdminApp.Views
                 errorMessage.IsVisible = false;
                 ServicesFrame.BorderColor = Color.Transparent;
             }
-
-            service = new Service(serviceNameEntry.Text);
-            services.Add(service);
+            service = new Service{ Name = serviceNameEntry.Text };
+            if (!services.Contains(service))
+            {
+                services.Add(service);
+            }
             serviceNameEntry.Text = "";
 
             
@@ -68,13 +71,18 @@ namespace BeautyBookAdminApp.Views
                 salonServiceLable.IsVisible = false;
             }
         }
-
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            string salonId = await SecureStorage.GetAsync("salonId");
+            var Myservices=await _userDB.GetSalonServices(salonId);
+            services.AddRange(Myservices);
+        }
         private async void OnSaveClicked(object sender, EventArgs e)
         {
-            List<string> serviceNames = services.Select(s => s.Name).ToList();
-            salonModel.Services = serviceNames;
+
             string salonId = await SecureStorage.GetAsync("oauth_token");
-            bool isSave = await _userDB.AddSalonServices( salonId , serviceNames);
+            bool isSave = await _userDB.AddSalonServices( salonId , services);
             if (isSave)
             {
                 await DisplayAlert("Added services", "Services saved successfully", "ok");
@@ -85,14 +93,6 @@ namespace BeautyBookAdminApp.Views
             }
 
         }
-        public class Service
-        {
-            public string Name { get; set; }
 
-            public Service(string name)
-            {
-                Name = name;
-            }
-        }
     }
 }

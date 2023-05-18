@@ -7,18 +7,19 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BeautyBookAdminApp
-{
+{   
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override async void OnStart()
         {
+            //SecureStorage.RemoveAll();
             var oauth_token = await SecureStorage.GetAsync("oauth_token");
             if (!string.IsNullOrEmpty(oauth_token))
             {
