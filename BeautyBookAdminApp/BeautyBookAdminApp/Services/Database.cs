@@ -127,11 +127,11 @@ namespace BeautyBookAdminApp.Services
             }
         }
 
-        public async Task<List<FirebaseObject<BookingModel>>> GetBooking()
+        public async Task<IReadOnlyCollection<FirebaseObject<BookingModel>>> GetBooking()
         {
             var requestedList= await firebaseClient.Child("BookingModel").OnceAsync<BookingModel>();
 
-            return requestedList.ToList();
+            return requestedList;
         }
         
         public async Task<bool> EditBookingStatus(string objectId,string newStatus)
