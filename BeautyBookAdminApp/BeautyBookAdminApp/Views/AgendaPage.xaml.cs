@@ -9,6 +9,7 @@ using BeautyBookAdminApp.ViewModels;
 using Firebase.Database;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 
 namespace BeautyBookAdminApp.Views
 {
@@ -40,6 +41,13 @@ namespace BeautyBookAdminApp.Views
             {
                 await Navigation.PushAsync(new AppointmentResponePage((FirebaseObject<BookingModel>)selectedItem));
             }
+        }
+        private async void Logout_clicked(object sender, EventArgs e)
+        {
+            // Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            await Application.Current.MainPage.Navigation.PopToRootAsync();
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
+            SecureStorage.RemoveAll();
         }
     }
 }

@@ -16,6 +16,7 @@ using Xamarin.Essentials;
 using BeautyBookAdminApp;
 using BeautyBookAdminApp.Views;
 using LiteDB;
+using Xamarin.Forms;
 
 namespace BeautyBookAdminApp.Services
 {
@@ -57,7 +58,7 @@ namespace BeautyBookAdminApp.Services
                 await firebaseClient.Child("SalonProfile").PostAsync(authModel);
                 if(userCredential.User.Uid!=null)
                 {
-                    App.Current.MainPage = new LoginPage();
+                    App.Current.MainPage = new NavigationPage(new AgendaPage());
                 }
             }
             catch (FirebaseAuthException ex)
@@ -105,7 +106,7 @@ namespace BeautyBookAdminApp.Services
                 await SecureStorage.SetAsync("oauth_token", token);
                 if(token !=null)
                 {
-                     App.Current.MainPage = new AgendaPage();
+                     App.Current.MainPage = new NavigationPage(new AgendaPage());
                 }
             }
             catch (FirebaseAuthException ex)

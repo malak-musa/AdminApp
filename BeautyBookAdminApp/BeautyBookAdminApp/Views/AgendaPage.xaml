@@ -29,6 +29,15 @@
                    VerticalOptions="Center"
                    Margin="-40,0,0,0"/>
 
+            <ImageButton Grid.Column="2"
+                Source="logout_icon.png" 
+                                 BackgroundColor="Transparent"
+                                 WidthRequest="30"
+                                 HeightRequest="25"
+                                 Margin="0,0,15,0"
+                                 HorizontalOptions="EndAndExpand"
+                                 Clicked="Logout_clicked"/>
+
         </Grid>
     </NavigationPage.TitleView>
 
