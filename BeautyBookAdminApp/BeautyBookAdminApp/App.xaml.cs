@@ -13,13 +13,10 @@ namespace BeautyBookAdminApp
         public App()
         {
             InitializeComponent();
-
-            //MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override async void OnStart()
         {
-            //SecureStorage.RemoveAll();
             var oauth_token = await SecureStorage.GetAsync("oauth_token");
             if (!string.IsNullOrEmpty(oauth_token))
             {
