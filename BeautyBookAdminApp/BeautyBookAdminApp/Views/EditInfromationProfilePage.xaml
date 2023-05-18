@@ -3,11 +3,11 @@
              xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              x:Class="BeautyBookAdminApp.Views.EditInfromationProfilePage"
              BackgroundColor="White">
-   
-     <ContentPage.BindingContext>
+
+    <ContentPage.BindingContext>
         <viewmodels:EditInformationProfileViewModel/>
     </ContentPage.BindingContext>
-   
+
     <NavigationPage.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -36,27 +36,27 @@
                    HorizontalOptions="Center"
                    />
 
-          
+
         </Grid>
     </NavigationPage.TitleView>
     <ContentPage.Content>
 
-         <CollectionView x:Name="MyProfile" ItemsSource="{Binding MyProfile}" >
+        <CollectionView x:Name="MyProfile" ItemsSource="{Binding MyProfile}" >
 
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-        <StackLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
 
-            <Label Text="Change Profile Information"
+                        <Label Text="Change Profile Information"
                    TextColor="Black"
                    FontSize="25"
                    FontAttributes="Bold"
                    HorizontalTextAlignment="Start"
                    Margin="30,30,0,0"/>
 
-            <StackLayout Spacing="10">
+                        <StackLayout Spacing="10">
 
-                <Entry x:Name="SalonName"
+                            <Entry x:Name="SalonName"
                        Text="{Binding SalonName}"
                        Placeholder="Salon Name"
                        FontSize="18"
@@ -65,9 +65,9 @@
                        Keyboard="Text"
                        Margin="40,30,40,0"/>
 
-        
 
-                <Entry x:Name="PhoneNumber"
+
+                            <Entry x:Name="PhoneNumber"
                        Text="{Binding PhoneNumber}"
                        Placeholder="Phone Number"
                        FontSize="18"
@@ -76,7 +76,7 @@
                        Keyboard="Telephone"
                        Margin="40,0,40,0"/>
 
-                <Entry x:Name="Address"
+                            <Entry x:Name="Address"
                        Text="{Binding Address}"
                        Placeholder="Address"
                        FontSize="18"
@@ -85,8 +85,8 @@
                        Keyboard="Text"
                        Margin="40,0,40,0"/>
 
-             
-                <Picker x:Name="SalonType" 
+
+                            <Picker x:Name="SalonType" 
                         Title="Select a salon type" 
                         FontSize="18"
                         TextColor="Black"
@@ -96,19 +96,19 @@
                         ItemDisplayBinding="{Binding SalonType}" 
                         Margin="40,0,40,0" />
 
-                <Grid Margin="50,10,50,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                            <Grid Margin="50,10,50,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                   
-                    <Entry x:Name="SelectedTime"
+
+                                <Entry x:Name="SelectedTime"
                           
                        Text="{Binding OpeningHour}"
                        Placeholder="6:00 AM 9:30 PM"
@@ -120,10 +120,10 @@
 
 
 
-                    
-                </Grid>
 
-                    <Button Grid.Column="2" 
+                            </Grid>
+
+                            <Button Grid.Column="2" 
                     Text="Save"
                     FontSize="16"
                     TextColor="Black"
@@ -136,10 +136,10 @@
                    
                     />
 
-            </StackLayout>
-        </StackLayout>
-        </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+                        </StackLayout>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>

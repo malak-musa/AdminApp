@@ -20,6 +20,7 @@ namespace BeautyBookAdminApp.Views
         }
 
       
+
         private async void OnSignupLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignupPage());

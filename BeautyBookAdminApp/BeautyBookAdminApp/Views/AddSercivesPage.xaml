@@ -3,22 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:BeautyBookAdminApp.ViewModels"
              x:Class="BeautyBookAdminApp.Views.AddSercivesPage"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="White">
 
     <ContentPage.BindingContext>
         <viewmodels:AddServicesViewModel/>
     </ContentPage.BindingContext>
-
-    <NavigationPage.TitleView>
-        <ContentView>
-            <Label Text="My Salon"
-                   FontSize="22"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="CenterAndExpand" />
-        </ContentView>
-    </NavigationPage.TitleView>
 
     <ContentPage.Content>
         <StackLayout Margin="30,50,30,0">

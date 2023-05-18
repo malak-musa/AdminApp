@@ -19,14 +19,5 @@ namespace BeautyBookAdminApp.ViewModels
             
         }
 
-        public class Service
-        {
-            public string ServiceName { get; set; }
-
-            public Service(string name)
-            {
-                ServiceName = name;
-            }
-        }
     }
 }
