@@ -22,11 +22,6 @@ namespace BeautyBookAdminApp.Views
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new AppointmentResponePage());
-        }
-
         private async void ImageButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SalonProfileTabBarPage());
@@ -34,7 +29,6 @@ namespace BeautyBookAdminApp.Views
 
         async void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs e)
         {
-            var collectionView = sender as CollectionView;
             var selectedItem = e.CurrentSelection.FirstOrDefault();
 
             if (selectedItem != null)
@@ -42,9 +36,9 @@ namespace BeautyBookAdminApp.Views
                 await Navigation.PushAsync(new AppointmentResponePage((FirebaseObject<BookingModel>)selectedItem));
             }
         }
+
         private async void Logout_clicked(object sender, EventArgs e)
         {
-            // Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
             await Application.Current.MainPage.Navigation.PopToRootAsync();
             Application.Current.MainPage = new NavigationPage(new LoginPage());
             SecureStorage.RemoveAll();

@@ -28,7 +28,5 @@ namespace BeautyBookAdminApp.Views
             var navigationPage = Application.Current.MainPage as NavigationPage;
             navigationPage.BarBackgroundColor = Color.White;
         }
-
-        
     } 
 }

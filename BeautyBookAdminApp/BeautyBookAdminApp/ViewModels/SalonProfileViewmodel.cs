@@ -12,39 +12,9 @@ namespace BeautyBookAdminApp.ViewModels
 {
     public class SalonProfileViewModel : BaseViewModel
     {
-        Database _firebase;
+        readonly Database _firebase;
         private ObservableCollection<SalonInformationModel> _profile;
-        private static string _accessToken { get; set; }
-
-        public SalonProfileViewModel()
-        {
-            AccessToken();
-            _firebase = new Database();
-            Profile = new ObservableCollection<SalonInformationModel>();
-            Profile = _firebase.getSalonProfile();
-            Profile.CollectionChanged += Serviceschanged;
-        }
-
-        private async void AccessToken()
-        {
-            try
-            {
-                _accessToken = await SecureStorage.GetAsync("oauth_token");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-        public ObservableCollection<SalonInformationModel> Profile
-        {
-            get { return _profile; }
-            set
-            {
-                _profile = value;
-                OnPropertyChanged();
-            }
-        }
+        private static string AccessToken { get; set; }
 
         private string _salonName;
         public string SalonName
@@ -57,17 +27,6 @@ namespace BeautyBookAdminApp.ViewModels
             }
         }
 
-        private string _ImagURL;
-        public string ImagURL
-        {
-            get { return _ImagURL; }
-            set
-            {
-                _ImagURL = value;
-                OnPropertyChanged();
-            }
-        }
-        
         private string _address;
         public string Address
         {
@@ -78,7 +37,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _daysOff;
         public string DaysOff
         {
@@ -89,7 +48,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _opeingHoures;
         public string OpeingHoures
         {
@@ -100,7 +59,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _salonType;
         public string SalonType
         {
@@ -111,7 +70,7 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         private string _phoneNumber;
         public string PhoneNumber
         {
@@ -122,19 +81,48 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public SalonProfileViewModel()
+        {
+            SetAccessToken();
+            _firebase = new Database();
+            Profile = new ObservableCollection<SalonInformationModel>();
+            Profile = _firebase.GetSalonProfile();
+            Profile.CollectionChanged += Serviceschanged;
+        }
+
+        private async void SetAccessToken()
+        {
+            try
+            {
+                AccessToken = await SecureStorage.GetAsync("oauth_token");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public ObservableCollection<SalonInformationModel> Profile
+        {
+            get { return _profile; }
+            set
+            {
+                _profile = value;
+                OnPropertyChanged();
+            }
+        }
         
         private void Serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 SalonInformationModel profilePageModel = e.NewItems[0] as SalonInformationModel;
-                if (profilePageModel.UserId == _accessToken)
+                if (profilePageModel.UserId == AccessToken)
                 {
                     SalonName = profilePageModel.SalonName;
                     Address = profilePageModel.Address;
-
                     OpeingHoures = profilePageModel.OpeningHour;
-                    ImagURL = profilePageModel.ImagURL;
                     SalonType = profilePageModel.SalonType;
                     PhoneNumber = profilePageModel.PhoneNumber;
                 }

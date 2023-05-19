@@ -12,19 +12,15 @@ namespace BeautyBookAdminApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
-    {
-      
+    {      
         public LoginPage()
         {
             InitializeComponent();
         }
 
-      
-
         private async void OnSignupLabelTapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SignupPage());
-
         }
     }
 }

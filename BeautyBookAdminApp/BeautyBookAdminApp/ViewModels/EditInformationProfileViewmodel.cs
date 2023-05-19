@@ -14,16 +14,13 @@ namespace BeautyBookAdminApp.ViewModels
 {
     public class EditInformationProfileViewModel : BaseViewModel
     {
-        Database _firebase;
-
-        private static string _accessToken { get; set; }
-
-        public ICommand save { get; }
-
+        readonly Database _firebase;
+        private static string AccessToken { get; set; }
+        public ICommand Save { get; }
+        public IList<SalonInformationModel> SalonCollection { get; set; }
         private ObservableCollection<SalonInformationModel> _myprofile;
         private ObservableCollection<SalonInformationModel> _profile;
-
-
+        
         public ObservableCollection<SalonInformationModel> MyProfile
         {
             get { return _myprofile; }
@@ -33,31 +30,37 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
+        
         public EditInformationProfileViewModel()
         {
-            AccessToken();
+            SetAccessToken();
             _firebase = new Database();
             Profile = new ObservableCollection<SalonInformationModel>();
             MyProfile = new ObservableCollection<SalonInformationModel>();
-
-            Profile = _firebase.getSalonProfile();
+            Profile = _firebase.GetSalonProfile();
             Profile.CollectionChanged += Serviceschanged;
-            save = new Command(onSave);
+            Save = new Command(OnSave);
+
+            SalonCollection = new ObservableCollection<SalonInformationModel>
+            {
+                new SalonInformationModel { SalonType = "Men's Salon" },
+                new SalonInformationModel { SalonType = "Women's Salon" },
+                new SalonInformationModel { SalonType = "Unisex Salon" }
+            };
         }
-        private async void AccessToken()
+
+        private async void SetAccessToken()
         {
             try
             {
-
-                _accessToken = await SecureStorage.GetAsync("oauth_token");
+                AccessToken = await SecureStorage.GetAsync("oauth_token");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
         }
+
         public ObservableCollection<SalonInformationModel> Profile
         {
             get { return _profile; }
@@ -68,33 +71,25 @@ namespace BeautyBookAdminApp.ViewModels
             }
         }
 
-
-
         private void Serviceschanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 SalonInformationModel profilePageModel = e.NewItems[0] as SalonInformationModel;
-                if (profilePageModel.UserId == _accessToken)
+
+                if (profilePageModel.UserId == AccessToken)
                 {
                     MyProfile.Remove(profilePageModel);
                     MyProfile.Add(profilePageModel);
-
                 }
             }
         }
 
-
-        private async void onSave(object obj)
+        private async void OnSave(object obj)
         {
             var control = obj as SalonInformationModel;
 
-            await _firebase.updateProfile(control);
-
+            await _firebase.UpdateProfile(control);
         }
-
     }
-
-
-
 }

@@ -17,17 +17,15 @@ namespace BeautyBookAdminApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddSercivesPage : ContentPage
     {
-        ObservableRangeCollection<Service> services;
+        readonly ObservableRangeCollection<Service> services;
         Service service;
-        SalonInformationModel salonModel = new SalonInformationModel();
-        Database _userDB = new Database();
+        readonly Database _userDB = new Database();
 
         public AddSercivesPage()
         {
             InitializeComponent();
             services = new ObservableRangeCollection<Service>();
             serviceListView.ItemsSource = services;
-
         }
 
         public async void OnAddServiceClicked(object sender, System.EventArgs e)
@@ -52,9 +50,6 @@ namespace BeautyBookAdminApp.Views
                 services.Add(service);
             }
             serviceNameEntry.Text = "";
-
-            
-
             var salonServiceLable = this.FindByName<Label>("SalonServiceLable");
             salonServiceLable.IsVisible = true;
         }
@@ -71,6 +66,7 @@ namespace BeautyBookAdminApp.Views
                 salonServiceLable.IsVisible = false;
             }
         }
+        
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -78,9 +74,9 @@ namespace BeautyBookAdminApp.Views
             var Myservices=await _userDB.GetSalonServices(salonId);
             services.AddRange(Myservices);
         }
+
         private async void OnSaveClicked(object sender, EventArgs e)
         {
-
             string salonId = await SecureStorage.GetAsync("oauth_token");
             bool isSave = await _userDB.AddSalonServices( salonId , services);
             if (isSave)
@@ -91,8 +87,6 @@ namespace BeautyBookAdminApp.Views
             {
                 await DisplayAlert("Services are not saved", "Failed to save services", "ok");
             }
-
         }
-
     }
 }

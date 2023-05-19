@@ -28,10 +28,12 @@
                     <StackLayout Orientation="Vertical" 
                                  Margin="20,10,0,0">
                         <Label Text="&#x0a;&#x0a;&#x0a;"/>
+                        
                         <Label Text="{Binding SalonName}" 
                                Margin="5,0,0,10" 
                                FontSize="Large" 
                                TextColor="Black" />
+                        
                         <Button Text="Edit Information" 
                                 FontSize="Small" 
                                 BackgroundColor="#3C504C" 
@@ -52,28 +54,53 @@
 
                 <StackLayout Margin="20,-10,10,10">
 
-                    <Label Text="Inforamtion" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="location_icon.png" WidthRequest="30" HeightRequest="30"  Margin="5,0,0,0"/>
-                        <Label Text="{Binding Address}" FontSize="Small" Margin="3,5,0,0" />
+                    <Label Text="Inforamtion" 
+                           FontSize="18" 
+                           FontAttributes="Bold" 
+                           TextColor="Black"/>
+                    
+                    <StackLayout Orientation="Horizontal" 
+                                 Spacing="10">
+                        
+                        <Image Source="location_icon.png" 
+                               WidthRequest="30" 
+                               HeightRequest="30"  
+                               Margin="5,0,0,0"/>
+                        
+                        <Label Text="{Binding Address}" 
+                               FontSize="Small" 
+                               Margin="3,5,0,0" />
+                        
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="time_icon.png" WidthRequest="20" HeightRequest="30" Margin="10,0,0,0"/>
-                        <!--<Label Text="{Binding OpeingHoures}" FontSize="Small" Margin="10,5,0,0" />-->
+                        <Image Source="time_icon.png" 
+                               WidthRequest="20" 
+                               HeightRequest="30" 
+                               Margin="10,0,0,0"/>
+                        
                         <Label Text="Opening Hours 10:00 AM - 6:00 PM" 
                                FontSize="Small" 
                                Margin="10,5,0,0" />
                     </StackLayout>
 
-
-                   
-                    <StackLayout Orientation="Horizontal" Spacing="10">
-                        <Image Source="call_icon.png" WidthRequest="30" HeightRequest="30" Margin="6,0,0,0"/>
-                        <Label Text="{Binding PhoneNumber}" FontSize="Small"  Margin="3,5,0,0" />
+                    <StackLayout Orientation="Horizontal" 
+                                 Spacing="10">
+                        
+                        <Image Source="call_icon.png" 
+                               WidthRequest="30" 
+                               HeightRequest="30" 
+                               Margin="6,0,0,0"/>
+                        <Label Text="{Binding PhoneNumber}" 
+                               FontSize="Small"  
+                               Margin="3,5,0,0" />
+                        
                     </StackLayout>
+                    
                 </StackLayout>
+                
             </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

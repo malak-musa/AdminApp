@@ -40,7 +40,6 @@
                            Keyboard="Text"
                            Margin="40,0,40,0"/>
 
-
                     <Entry x:Name="Password"
                            Text="{Binding Password}"
                            Placeholder="Password"
@@ -88,25 +87,14 @@
                            Keyboard="Text"
                            Margin="40,0,40,0"/>
 
-                    <Picker x:Name="City" 
-                            Title="Select a city" 
-                            FontSize="18"
-                            TextColor="Black"
-                            TitleColor="#B5B5B5"
-                            ItemsSource="{Binding Cities}" 
-                            ItemDisplayBinding="{Binding City}" 
-                            Margin="40,0,40,0" />
-
                     <Picker x:Name="SalonType" 
                             Title="Select a salon type" 
                             FontSize="18"
                             TextColor="Black"
                             TitleColor="#B5B5B5"
                             ItemsSource="{Binding SalonCollection}"
-                           SelectedIndex="{Binding SalonType}"
+                            SelectedIndex="{Binding SalonType}"
                             ItemDisplayBinding="{Binding SalonType}"
-                   
-
                             Margin="40,0,40,0" />
 
                     <Grid Margin="45,10,50,0">
@@ -147,13 +135,13 @@
                                Margin="20,0,0,0"/>
 
                         <TimePicker Grid.Row="0" 
-                                Grid.Column="3"
-                                FontSize="16"
-                                x:Name="EndTime"
-                                TextColor="#B5B5B5"
-                                Time="{Binding OpeningEndHours}" 
-                                HorizontalOptions="StartAndExpand"
-                                Margin="-15,-10,-50,50"/>
+                                    Grid.Column="3"
+                                    FontSize="16"
+                                    x:Name="EndTime"
+                                    TextColor="#B5B5B5"
+                                    Time="{Binding OpeningEndHours}" 
+                                    HorizontalOptions="StartAndExpand"
+                                    Margin="-15,-10,-50,50"/>
                     </Grid>
                 </StackLayout>
             
@@ -167,7 +155,7 @@
                         CornerRadius="10"
                         Margin="40,0,40,100"
                         VerticalOptions="CenterAndExpand"
-                       Command="{Binding SigUpButton}"/>
+                        Command="{Binding SigUpButton}"/>
             
             </StackLayout>
         </ScrollView>

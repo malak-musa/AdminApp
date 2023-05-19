@@ -15,6 +15,8 @@ namespace BeautyBookAdminApp.ViewModels
     public class AgendaViewModel : ObservableObject
     {
         public Database database;
+        public ICommand ChangeDateCommand { set; get; }
+
         FirebaseObject<BookingModel> _selectedItem;
         public FirebaseObject<BookingModel> SelectedItem
         {
@@ -27,22 +29,19 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        DateTime _selectedDate;
-        private List<FirebaseObject<BookingModel>> requestedList;
 
+        DateTime _selectedDate;
         public DateTime SelectedDate
         {
             get { return _selectedDate; }
             set
             {
-
                 _selectedDate = value;
-
-
                 OnPropertyChanged();
             }
         }
-
+        
+        private List<FirebaseObject<BookingModel>> requestedList;
         public List<FirebaseObject<BookingModel>> RequestedList
         {
             get => requestedList;
@@ -52,7 +51,6 @@ namespace BeautyBookAdminApp.ViewModels
                 OnPropertyChanged();
             }
         }
-        public ICommand ChangeDateCommand { set; get; }
 
         public AgendaViewModel()
         {
@@ -61,20 +59,16 @@ namespace BeautyBookAdminApp.ViewModels
             database = new Database();
 
         }
+
         async void ChangeDate()
         {
             string Date = "Date: ";
-
             string dateString = SelectedDate.ToString("MM/dd/yyyy");
-
             var EditedDate = Date + dateString;
-
             var booking = await database.GetBooking();
-
             var filtered = booking.Where(el => el.Object.Date == EditedDate).ToList();
 
             RequestedList = filtered;
-
         }
     }
 }
