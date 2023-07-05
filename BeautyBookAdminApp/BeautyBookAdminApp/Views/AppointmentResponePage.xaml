@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BeautyBookAdminApp.Views.AppointmentResponePage">
+
+    <NavigationPage.TitleView>
+        <ContentView>
+            <Label Text="Booked Appointment"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   Margin="35,0,0,0"
+                   VerticalOptions="CenterAndExpand" />
+        </ContentView>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Margin="20,70,20,0"
+                   HeightRequest="480"
+                   BackgroundColor="white"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   CornerRadius="20">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0"
+                               Source="user_image.png"
+                               Aspect="AspectFill"
+                               WidthRequest="120"
+                               HeightRequest="120"
+                               BackgroundColor="Silver"
+                               Margin="10,0,0,0"/>
+
+                        <Label Grid.Column="1"
+                               Text="{Binding CustomerName}"
+                               FontSize="22"
+                               TextColor="Black"
+                               Margin="10,10,0,0"/>
+
+                        <Label Grid.Column="1"
+                               Grid.Row="0"
+                               Text="15 June 10:00 AM"
+                               FontSize="16"
+                               TextColor="Black"                             
+                               VerticalOptions="End"
+                               Margin="10,0,0,50"/>
+
+                        <Button Grid.Column="1"
+                                Grid.Row="1"
+                                Text="0591134533"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="White"
+                                BackgroundColor="#0cc014"
+                                CornerRadius="10"
+                                HeightRequest="40"
+                                VerticalOptions="End"
+                                Margin="10,-45,0,0" />
+                    </Grid>
+
+                    <StackLayout>
+                        <Line X1="-10" Y1="100" X2="100" Y2="100" Stroke="white" StrokeThickness="3"
+                              Margin="100,-75,100,0"
+                              Opacity="0.7"/>
+
+                        <Label Text="Services"
+                               FontSize="20"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               Margin="20,10,0,0"/>
+                        
+                        <Frame Margin="20,10,20,0"
+                               CornerRadius="10"
+                               HeightRequest="20"
+                               Opacity="0.8">
+                            
+                            <Label Text="Nails"
+                                   FontSize="18"
+                                   TextColor="Black"/>
+                        </Frame>
+
+                    </StackLayout>
+
+                    <Grid Margin="20,130,20,0">
+                        
+                        <Grid ColumnDefinitions="*,*"/>
+
+                        <Button Text="Accept"
+                                BackgroundColor="green"
+                                TextColor="White"
+                                FontSize="18"
+                                CornerRadius="5"
+                                Margin="0,0,10,0"
+                                Clicked="AcceptButton_Clicked"/>
+
+                        <Button Grid.Column="1"
+                                Text="Reject"        
+                                BackgroundColor="OrangeRed"
+                                TextColor="White"
+                                FontSize="18"
+                                CornerRadius="5"
+                                Margin="10,0,0,0"
+                                Clicked="RejectButton_Clicked"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
